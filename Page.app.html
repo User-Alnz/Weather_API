@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather APP</title>
+        <link rel="stylesheet" href="Page.app.css">
+        <!--Fonts - Roboto | from Google : https://fonts.google.com/selection/embed-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <!--End Fonts-->
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="main_card">
+                
+                <div class="item_1">
+                <input id="search_bar" type="text" placeholder="Enter a location">
+
+                <button id = "search_button">
+                    <img  style="width:1rem;" src="Images_source/search_black.png" alt="search_img">
+                </button>
+                </div>
+
+                <div class="item_2">
+                    <img src="Images_source/sun.png" alt="Weather_img">
+                </div>
+
+                <div class="item_3">
+                    <p id="temperature">22°c</p>
+                    <p id="location">Lyon</p>
+                </div>
+
+            </div>
+        
+        </div>
+<script src = "Main_api.js"> 
+</script>
+    </body>
+</html>
