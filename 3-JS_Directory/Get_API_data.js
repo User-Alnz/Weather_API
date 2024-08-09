@@ -9,8 +9,8 @@ function ft_transform_JSON_to_Table(data, Data_collection)
 {
     let     idx_row = 0;
     // Data collection define below
-        tab[idx_row] = ['time', 'temperature_2m', 'unit', 'wind_direction_10m', 'unit', 'wind_speed_10m', 'unit', 'snowfall', 'unit', 'rain', 'unit','cloud_cover', 'unit'];
-        console.log(tab[idx_row]);
+        Data_collection[idx_row] = ['time', 'temperature_2m', 'unit', 'wind_direction_10m', 'unit', 'wind_speed_10m', 'unit', 'snowfall', 'unit', 'rain', 'unit','cloud_cover', 'unit'];
+        console.log(Data_collection[idx_row]);
         idx_row++;    
     
     while(++idx_row < data.hourly.time.length)
@@ -44,7 +44,7 @@ function ft_transform_JSON_to_Table(data, Data_collection)
     return(Data_collection);
 } 
 
-export function ft_Call_Meteomatics(Data_collection)
+export function ft_Call_Meteomatics_API(Data_collection)
 {
     function ft_Get_Weather_Data() 
     {
@@ -65,7 +65,7 @@ export function ft_Call_Meteomatics(Data_collection)
         .catch(error=>console.log(error));
     }
 
-    function ft_GetCurrentLocation()
+    function ft_Get_Current_Location()
     {
     // GET current latitude and longitude || Documentation : https://developer.mozilla.org/en-US/docs/Web/API/GeolocationCoordinates
         if (!navigator.geolocation)
@@ -85,7 +85,7 @@ export function ft_Call_Meteomatics(Data_collection)
             })
         }
     }
-        ft_GetCurrentLocation();
+        ft_Get_Current_Location();
         
     return(Data_collection);
 }
