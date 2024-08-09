@@ -1,7 +1,6 @@
 // https://www.meteomatics.com/en/api/getting-started/
 // https://www.meteomatics.com/en/api/getting-started/
 
-var     position;
 var     latitude;
 var     longitude;
 let     url;
@@ -10,8 +9,8 @@ function ft_transform_JSON_to_Table(data)
 {
     var tab =[];
     let idx_row = 0;
-
-        tab[idx_row] = ['time', 'temperature_2m', 'snowflake', 'temperature'];
+// A FINIR !!
+        tab[idx_row] = ['time', 'unit', 'temperature_2m', 'unit', 'wind_direction_10m', 'unit', 'wind_speed_10m', 'unit', 'snowfall', 'unit', 'rain', 'unit','cloud_cover', 'unit'];
         console.log(tab[idx_row]);
         idx_row++;    
     
@@ -22,11 +21,25 @@ function ft_transform_JSON_to_Table(data)
 
         tab[idx_row].push(data.hourly.time[idx_row]);
         tab[idx_row].push(data.hourly.temperature_2m[idx_row]);
-        tab[idx_row].push(data.hourly.rain[idx_row]);
-
+        tab[idx_row].push(data.hourly_units.temperature_2m[0]);
+        tab[idx_row].push(data.hourly.wind_direction_10m[idx_row]);
+        tab[idx_row].push(data.hourly_units.wind_direction_10m[0]);
+        tab[idx_row].push(data.hourly.wind_speed_10m[idx_row]);
+        tab[idx_row].push(data.hourly_units.wind_speed_10m[0]);
         tab[idx_row].push(data.hourly.snowfall[idx_row]);
+        tab[idx_row].push(data.hourly_units.snowfall[0]);
+        tab[idx_row].push(data.hourly.wind_speed_10m[idx_row]);
+        tab[idx_row].push(data.hourly_units.wind_speed_10m[0]);
+        tab[idx_row].push(data.hourly.snowfall[idx_row]);
+        tab[idx_row].push(data.hourly_units.snowfall[0]);
+        tab[idx_row].push(data.hourly.rain[idx_row]);
+        tab[idx_row].push(data.hourly_units.rain[0]);
+        tab[idx_row].push(data.hourly.cloud_cover[idx_row]);
+        tab[idx_row].push(data.hourly_units.cloud_cover[0]);
+
         console.log(tab[idx_row]);
     }
+    console.log(tab);
     return (tab);
 } 
 
@@ -51,7 +64,7 @@ export function ft_Call_Meteomatics()
         .catch(error=>console.log(error));
     }
 
-    function ft_GetCurrentLocation(position)
+    function ft_GetCurrentLocation()
     {
     // GET current latitude and longitude || Documentation : https://developer.mozilla.org/en-US/docs/Web/API/GeolocationCoordinates
         if (!navigator.geolocation)
@@ -63,10 +76,10 @@ export function ft_Call_Meteomatics()
 
                 latitude = position.coords.latitude.toFixed(2);
                 longitude = position.coords.longitude.toFixed(2);
-                url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,rain,snowfall,wind_speed_10m,wind_direction_10m&timezone=Europe%2FLondon&models=meteofrance_seamless`;
+                url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relative_humidity_2m,rain,snowfall,cloud_cover,wind_speed_10m,wind_direction_10m&timezone=Europe%2FLondon&models=meteofrance_seamless`;
                 //console.log(`latitude is : ${latitude} longitude is : ${longitude}`);
                 //console.log(position.coords.toJSON());
-                console.log(url);
+                //console.log(url);
                 ft_Get_Weather_Data();
             })
         }
