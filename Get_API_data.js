@@ -9,8 +9,8 @@ function ft_transform_JSON_to_Table(data)
 {
     var tab =[];
     let idx_row = 0;
-// A FINIR !!
-        tab[idx_row] = ['time', 'unit', 'temperature_2m', 'unit', 'wind_direction_10m', 'unit', 'wind_speed_10m', 'unit', 'snowfall', 'unit', 'rain', 'unit','cloud_cover', 'unit'];
+    // Data collection define below
+        tab[idx_row] = ['time', 'temperature_2m', 'unit', 'wind_direction_10m', 'unit', 'wind_speed_10m', 'unit', 'snowfall', 'unit', 'rain', 'unit','cloud_cover', 'unit'];
         console.log(tab[idx_row]);
         idx_row++;    
     
@@ -20,22 +20,24 @@ function ft_transform_JSON_to_Table(data)
         tab[idx_row] = [];  
 
         tab[idx_row].push(data.hourly.time[idx_row]);
+
         tab[idx_row].push(data.hourly.temperature_2m[idx_row]);
-        tab[idx_row].push(data.hourly_units.temperature_2m[0]);
+        tab[idx_row].push(data.hourly_units.temperature_2m);
+
         tab[idx_row].push(data.hourly.wind_direction_10m[idx_row]);
-        tab[idx_row].push(data.hourly_units.wind_direction_10m[0]);
+        tab[idx_row].push(data.hourly_units.wind_direction_10m);
+
         tab[idx_row].push(data.hourly.wind_speed_10m[idx_row]);
-        tab[idx_row].push(data.hourly_units.wind_speed_10m[0]);
+        tab[idx_row].push(data.hourly_units.wind_speed_10m);
+
         tab[idx_row].push(data.hourly.snowfall[idx_row]);
-        tab[idx_row].push(data.hourly_units.snowfall[0]);
-        tab[idx_row].push(data.hourly.wind_speed_10m[idx_row]);
-        tab[idx_row].push(data.hourly_units.wind_speed_10m[0]);
-        tab[idx_row].push(data.hourly.snowfall[idx_row]);
-        tab[idx_row].push(data.hourly_units.snowfall[0]);
+        tab[idx_row].push(data.hourly_units.snowfall);
+
         tab[idx_row].push(data.hourly.rain[idx_row]);
-        tab[idx_row].push(data.hourly_units.rain[0]);
+        tab[idx_row].push(data.hourly_units.rain);
+
         tab[idx_row].push(data.hourly.cloud_cover[idx_row]);
-        tab[idx_row].push(data.hourly_units.cloud_cover[0]);
+        tab[idx_row].push(data.hourly_units.cloud_cover);
 
         console.log(tab[idx_row]);
     }
