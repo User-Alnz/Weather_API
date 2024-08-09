@@ -5,10 +5,9 @@ var     latitude;
 var     longitude;
 let     url;
 
-function ft_transform_JSON_to_Table(data)
+function ft_transform_JSON_to_Table(data, Data_collection)
 {
-    var tab =[];
-    let idx_row = 0;
+    let     idx_row = 0;
     // Data collection define below
         tab[idx_row] = ['time', 'temperature_2m', 'unit', 'wind_direction_10m', 'unit', 'wind_speed_10m', 'unit', 'snowfall', 'unit', 'rain', 'unit','cloud_cover', 'unit'];
         console.log(tab[idx_row]);
@@ -16,36 +15,36 @@ function ft_transform_JSON_to_Table(data)
     
     while(++idx_row < data.hourly.time.length)
     {
-      if (!tab[idx_row]) 
-        tab[idx_row] = [];  
+      if (!Data_collection[idx_row]) 
+        Data_collection[idx_row] = [];  
 
-        tab[idx_row].push(data.hourly.time[idx_row]);
+        Data_collection[idx_row].push(data.hourly.time[idx_row]);
 
-        tab[idx_row].push(data.hourly.temperature_2m[idx_row]);
-        tab[idx_row].push(data.hourly_units.temperature_2m);
+        Data_collection[idx_row].push(data.hourly.temperature_2m[idx_row]);
+        Data_collection[idx_row].push(data.hourly_units.temperature_2m);
 
-        tab[idx_row].push(data.hourly.wind_direction_10m[idx_row]);
-        tab[idx_row].push(data.hourly_units.wind_direction_10m);
+        Data_collection[idx_row].push(data.hourly.wind_direction_10m[idx_row]);
+        Data_collection[idx_row].push(data.hourly_units.wind_direction_10m);
 
-        tab[idx_row].push(data.hourly.wind_speed_10m[idx_row]);
-        tab[idx_row].push(data.hourly_units.wind_speed_10m);
+        Data_collection[idx_row].push(data.hourly.wind_speed_10m[idx_row]);
+        Data_collection[idx_row].push(data.hourly_units.wind_speed_10m);
 
-        tab[idx_row].push(data.hourly.snowfall[idx_row]);
-        tab[idx_row].push(data.hourly_units.snowfall);
+        Data_collection[idx_row].push(data.hourly.snowfall[idx_row]);
+        Data_collection[idx_row].push(data.hourly_units.snowfall);
 
-        tab[idx_row].push(data.hourly.rain[idx_row]);
-        tab[idx_row].push(data.hourly_units.rain);
+        Data_collection[idx_row].push(data.hourly.rain[idx_row]);
+        Data_collection[idx_row].push(data.hourly_units.rain);
 
-        tab[idx_row].push(data.hourly.cloud_cover[idx_row]);
-        tab[idx_row].push(data.hourly_units.cloud_cover);
+        Data_collection[idx_row].push(data.hourly.cloud_cover[idx_row]);
+        Data_collection[idx_row].push(data.hourly_units.cloud_cover);
 
-        console.log(tab[idx_row]);
+        console.log(Data_collection[idx_row]);
     }
-    console.log(tab);
-    return (tab);
+    console.log(Data_collection);
+    return(Data_collection);
 } 
 
-export function ft_Call_Meteomatics()
+export function ft_Call_Meteomatics(Data_collection)
 {
     function ft_Get_Weather_Data() 
     {
@@ -61,7 +60,7 @@ export function ft_Call_Meteomatics()
         })
         .then ((data) =>{
             console.log(data);
-            ft_transform_JSON_to_Table(data);
+            ft_transform_JSON_to_Table(data, Data_collection);
         })
         .catch(error=>console.log(error));
     }
@@ -87,4 +86,6 @@ export function ft_Call_Meteomatics()
         }
     }
         ft_GetCurrentLocation();
+        
+    return(Data_collection);
 }
