@@ -6,3 +6,4 @@ https://iconduck.com/sets/weather-underground-icons
 UI design inspiration :
 https://www.behance.net/gallery/101617773/Weather-web-design-concept
 https://www.pinterest.fr/pin/875105771334011012/
+https://www.vecteezy.com/vector-art/1544901-gui-elements-for-weather-forecast-mobile-app
