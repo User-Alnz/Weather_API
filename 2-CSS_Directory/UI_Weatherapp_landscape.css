@@ -47,7 +47,7 @@ html,body{
     font-weight: 700;
     font-style: normal;
     font-variation-settings:
-    "wdth" 100,
+    "wdth" 700,
     "YTLC" 500;
     color: black;
     font-size: 1em;    
@@ -60,6 +60,7 @@ html,body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: baseline;
     padding : 1rem 3rem 1rem 3rem;
 }
 
@@ -112,5 +113,29 @@ html,body{
 }
 .menu
 {
-    padding-left: 2rem;
+    padding-left: 7em;
+}
+
+#Choose_FR
+{
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+#Choose_ENG
+{
+    background: none;
+    border: none;
+    border-left: solid 1px #000;
+    outline: none;
+    box-shadow: none;
+}
+/*End - top_left_corner_section*/
+
+/* Start - daily_weather_data */
+.daily_weather_data
+{
+    display: flex;
+    
 }
