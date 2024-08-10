@@ -1,0 +1,67 @@
+/*Main Container*/
+.daily_weather_data
+{
+    padding: 1rem 3rem 1rem 3rem;
+}
+
+.item_1
+{
+    display: flex;
+    align-items: stretch;
+}
+/* Start - box_icon_current_weather */
+
+.box_icon_current_weather
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#icon_current_weather
+{
+    height: 7.5rem;
+}
+
+#daily_sunrise
+{
+ margin-bottom: 0;
+}
+#daily_sunset
+{
+    margin-top: 0.2rem;
+}
+
+/* Start - current_weather_data */
+.current_weather_data
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0rem 4rem 0rem 2rem;
+
+}
+#current_temperature
+{
+    margin: 0;
+}
+#apparent_temperature
+{
+    margin-bottom: 0;
+}
+#apparent_temperature_description
+{
+    margin-top: 0.2rem;
+}
+
+/* Start - more_details*/
+.more_details
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+

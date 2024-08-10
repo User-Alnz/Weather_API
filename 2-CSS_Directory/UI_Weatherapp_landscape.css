@@ -8,7 +8,7 @@ html,body{
 .container
 {
     background-image: linear-gradient(rgba(255 255 255 / 18%), rgba(0 0 0 / 80%)),
-    url(/Images_source/UI_landscape_interface/landscape_Images_sources/Backgroung_cloody.jpg);
+    url(/Images_source/UI_landscape_interface/landscape_Images_sources/Background_earlymoorning.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -52,6 +52,36 @@ html,body{
     color: black;
     font-size: 1em;    
 }
+
+#daily_sunrise
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+    color: black;
+    font-size: 0.8em;
+}
+#daily_sunset
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+    color: black;
+    font-size: 0.8em;
+}
+#date{
+    
+}
+
+
 /*Fonts*/
 
 
@@ -64,13 +94,16 @@ html,body{
     padding : 1rem 3rem 1rem 3rem;
 }
 
-/*Start - top_right_corner_section */
+
+
+
+/*Start SECTION  1 - top_right_corner_section */
 .top_right_corner_section
 {
     display: flex;
     align-items: baseline;
 }
-#icon_logo
+#icon_location
 {
     padding-left: 2rem;
     height: 1.5rem;
@@ -133,9 +166,30 @@ html,body{
 }
 /*End - top_left_corner_section*/
 
-/* Start - daily_weather_data */
+
+
+
+/* Start SECTION  2 - daily_weather_data */
 .daily_weather_data
 {
     display: flex;
-    
+    align-items: flex-end;
 }
+
+/*div bock 1 - icone_current_weather*/
+#icon_current_weather
+{
+    height: 7.5rem;
+}
+
+#daily_sunrise
+{
+ margin-bottom: 0;
+}
+#daily_sunset
+{
+    margin-top: 0.2rem;
+}
+
+/*div bock 2 - current_weather_data*/
+

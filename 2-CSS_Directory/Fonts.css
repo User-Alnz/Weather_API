@@ -1,0 +1,128 @@
+#App_name
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 75,
+    "YTLC" 462;
+    color: black;
+    font-size: 1.5em; 
+}
+#location{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+    color: black;
+    font-size: 1em;
+}
+.menu
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 700,
+    "YTLC" 500;
+    color: black;
+    font-size: 1em;    
+}
+
+#daily_sunrise
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+    color: black;
+    font-size: 0.8em;
+}
+#daily_sunset
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+    color: black;
+    font-size: 0.8em;
+}
+#date
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+    color: black;
+    font-size: 1em;
+}
+#current_temperature
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+    color: #f6a71b; 
+    font-size: 3em;
+}
+#apparent_temperature
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 650;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100,
+    "YTLC" 500;
+    color: black;
+    font-size: 1em;
+}
+
+#apparent_temperature_description
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings: "wdth" 100, "YTLC" 500;
+    color: black;
+    font-size: 0.8em;
+}
+#more_details_title
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 650;
+    font-style: normal;
+    font-variation-settings: "wdth" 100, "YTLC" 500;
+    color: black;
+    font-size: 1em;
+}
+
+#wind_speed, #air_humidity, #pressure, #precipitation 
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings: "wdth" 100, "YTLC" 500;
+    color: black;
+    font-size: 0.8em;
+}

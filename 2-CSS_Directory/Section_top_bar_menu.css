@@ -1,0 +1,77 @@
+/*Main Container*/
+.top_bar_menu
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding : 1rem 3rem 1rem 3rem;
+}
+
+/*Start - top_right_corner_section */
+.top_right_corner_section
+{
+    display: flex;
+    align-items: baseline;
+}
+#icon_location
+{
+    padding-left: 2rem;
+    height: 1.5rem;
+}
+#location
+{
+    padding-left: 0.9rem;
+}
+#Choose_Celsius
+{
+    margin-left: 2rem;
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+#Choose_Celsius:hover{
+    font-weight: bold;
+}
+#Farhenheit
+{
+    background: none;
+    border: none;
+    border-left: solid 1px #000;
+    outline: none;
+    box-shadow: none;
+}
+#Farhenheit:hover{
+    font-weight: bold;
+}
+/*Stop - top_right_corner_section */
+
+/*Start - top_left_corner_section*/
+.top_left_corner_section
+{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.menu
+{
+    padding-left: 7em;
+}
+
+#Choose_FR
+{
+    background: none;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+#Choose_ENG
+{
+    background: none;
+    border: none;
+    border-left: solid 1px #000;
+    outline: none;
+    box-shadow: none;
+}
+/*End - top_left_corner_section*/
