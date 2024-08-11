@@ -1,6 +1,10 @@
 /*Main Container*/
 .daily_weather_data
 {
+    /*Change flex orientation for diffent layout on phone or small screen - No laptop*/
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     padding: 1rem 3rem 1rem 3rem;
 }
 
@@ -39,6 +43,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
     padding: 0rem 4rem 0rem 2rem;
 
 }
@@ -60,8 +65,61 @@
 {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: flex-start;
+    justify-content: space-between;
+}
+
+#wind_speed, #air_humidity, #pressure
+{
+    margin-top: 0.6rem; 
+    margin-bottom: 0;
+}
+
+#precipitation 
+{
+    margin-top: 0.4rem; 
 }
 
 
+/*ITEM 2*/
+.item_2
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    /*Glass effect*/
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+    backdrop-filter: blur(10px);
+    padding: 0rem 2rem 0rem 2rem;
+}
+
+.pack
+{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.pack_time
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.6rem;
+}
+
+.daily_icons
+{
+    height: 2.3rem;
+}
+
+.daily_temp
+{
+    margin-top: 0.6rem;
+    margin-bottom: 0;
+}
+.current_hours
+{
+    margin-top: 0.6rem;
+}

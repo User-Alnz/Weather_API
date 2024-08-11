@@ -5,14 +5,16 @@ html,body{
     padding: 0;
     height: 100vh;
 }
+
 .container
 {
     background-image: linear-gradient(rgba(255 255 255 / 18%), rgba(0 0 0 / 80%)),
-    url(/Images_source/UI_landscape_interface/landscape_Images_sources/Background_night.jpg);
+    url(/Images_source/UI_landscape_interface/landscape_Images_sources/Background_noon.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
 }
+
 
 

@@ -1,3 +1,14 @@
+/*Only colors*/
+#Choose_FR, #Choose_Celsius
+{
+    color:  whitesmoke;
+}
+#Choose_ENG, #Farhenheit 
+{
+    color:  whitesmoke;
+}
+/*Only colors*/
+
 #App_name
 {
     font-family: "Nunito Sans", sans-serif;
@@ -18,7 +29,7 @@
     font-variation-settings:
     "wdth" 100,
     "YTLC" 500;
-    color: black;
+    color: whitesmoke;
     font-size: 1em;
 }
 .menu
@@ -30,7 +41,7 @@
     font-variation-settings:
     "wdth" 700,
     "YTLC" 500;
-    color: black;
+    color: whitesmoke;
     font-size: 1em;    
 }
 
@@ -43,7 +54,7 @@
     font-variation-settings:
     "wdth" 100,
     "YTLC" 500;
-    color: black;
+    color: whitesmoke;
     font-size: 0.8em;
 }
 #daily_sunset
@@ -55,9 +66,10 @@
     font-variation-settings:
     "wdth" 100,
     "YTLC" 500;
-    color: black;
+    color: whitesmoke;
     font-size: 0.8em;
 }
+
 #date
 {
     font-family: "Nunito Sans", sans-serif;
@@ -67,7 +79,7 @@
     font-variation-settings:
     "wdth" 100,
     "YTLC" 500;
-    color: black;
+    color: whitesmoke;
     font-size: 1em;
 }
 #current_temperature
@@ -82,6 +94,7 @@
     color: #f6a71b; 
     font-size: 3em;
 }
+
 #apparent_temperature
 {
     font-family: "Nunito Sans", sans-serif;
@@ -91,7 +104,7 @@
     font-variation-settings:
     "wdth" 100,
     "YTLC" 500;
-    color: black;
+    color: whitesmoke;
     font-size: 1em;
 }
 
@@ -102,9 +115,10 @@
     font-weight: 300;
     font-style: normal;
     font-variation-settings: "wdth" 100, "YTLC" 500;
-    color: black;
+    color: whitesmoke;
     font-size: 0.8em;
 }
+
 #more_details_title
 {
     font-family: "Nunito Sans", sans-serif;
@@ -112,7 +126,7 @@
     font-weight: 650;
     font-style: normal;
     font-variation-settings: "wdth" 100, "YTLC" 500;
-    color: black;
+    color: whitesmoke;
     font-size: 1em;
 }
 
@@ -123,6 +137,28 @@
     font-weight: 300;
     font-style: normal;
     font-variation-settings: "wdth" 100, "YTLC" 500;
-    color: black;
+    color: whitesmoke;
     font-size: 0.8em;
 }
+.name_daily_status, .current_hours
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings: "wdth" 100, "YTLC" 500;
+    color: whitesmoke;
+    font-size: 0.8em;
+}
+
+.daily_temp
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings: "wdth" 100, "YTLC" 500;
+    color: whitesmoke;
+    font-size: 1rem;
+}
+
