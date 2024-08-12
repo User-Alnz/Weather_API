@@ -1,0 +1,89 @@
+/*Main container*/
+.weekly_weather_data
+{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 3rem 1rem 3rem;
+}
+
+/*Start - weekly_item_1*/
+.weekly_item_1
+{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.empty
+{
+    flex-grow: 1;
+}
+.get_selection
+{
+    padding-left: 1rem;
+    flex-basis: 6rem;
+    flex-grow: 1;
+}
+.not_selected
+{
+    padding-left: 1rem;
+    flex-basis: 6rem;
+    flex-grow: 1;
+}
+.button
+{
+    display: flex;
+    flex-direction: row-reverse;
+
+    padding-right: 1rem;
+    flex-basis: 6rem;
+    flex-grow: 1;
+}
+
+/*Start - weekly_item_2*/
+.weekly_item_2
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Main_pack_weekly
+{
+    padding-left: 1rem;
+    flex-basis: 6rem;
+    flex-grow: 1;
+}
+
+.empty /*already declared but here for better understanding weekly_item behavior*/
+{
+    flex-grow: 1;
+}
+
+
+
+/* /!\ Visual Effect - USE JS later /!\*/
+
+.empty
+{
+    /* If screen is larger than 1024 px */
+    border: none 
+}
+
+.Main_pack_weekly
+{
+    border-top: solid 1px;;
+    border-top-color: #bfc9ca;
+}
+#get_selection_Main_pack_weekly
+{
+    border-top-color: #f6a71b;
+}
+
+#empty_decoration_style /*DELETE ID if needed !*/
+{
+
+border-top: solid 1px;;
+border-top-color: #bfc9ca;
+border: none;
+/* boder: none */
+}

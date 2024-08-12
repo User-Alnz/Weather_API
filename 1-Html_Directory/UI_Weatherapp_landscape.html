@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="/2-CSS_Directory/Main_layout.css">
         <link rel="stylesheet" href="/2-CSS_Directory/Nav_top_bar_menu.css">
         <link rel="stylesheet" href="/2-CSS_Directory/Section_daily_weather_data.css">
+        <link rel="stylesheet" href="/2-CSS_Directory/Section_weekly_weather_data.css">
         <link rel="stylesheet" href="/2-CSS_Directory/Fonts.css">
         <!--Fonts - Roboto | from Google : https://fonts.google.com/selection/embed-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +17,7 @@
     </head>
 
     <body>
+
         <div class="container">
 
             <nav class="top_bar_menu">
@@ -38,10 +40,12 @@
 
                 </div>
             </nav>
-
+            <div class="empty_layout_room_manager" >
+            </div>
+            <!-- <div class="layout"> -->
             <section class="daily_weather_data">
                 
-                <div class="item_1">
+                <div class="day_item_1">
 
                     <div class="box_icon_current_weather">
 
@@ -86,7 +90,7 @@
                     </div>
                 </div>
                 
-                <div class="item_2">
+                <div class="day_item_2">
 
                     <div class="Main_pack">
 
@@ -201,18 +205,112 @@
 
             </section>
 
+
+
             <section class="weekly_weather_data">
 
-                <div class="Main_pack_weekly">
-                    <p class="day">Friday</p>
-                    <p class="day_date">25 july</p>
-                    <p class="min_temp">min. 20°C</p>
-                    <p class="max_temp">max. 20°C</p>
-                    <img class="weekly_icons" src="/Images_source/PNG_icons_256x256/clear.png" alt="" >
+                <div class="weekly_item_1">
+                    <!--Delete empty id ! Later-->
+                    <div class="empty" >
+                    </div>
 
+                    <div class="get_selection">
+                        <p id="selection_pointer">TODAY</p>
+                    </div>
+                    <div class="not_selected"></div>
+                    <div class="not_selected"></div>
+                    <div class="not_selected"></div>
+                    <div class="not_selected"></div>
+                    <div class="not_selected"></div>
+                    <div class="button">
+                        <p id="selection_button">FORCAST UP COMMING DAYS</p>
+                    </div>
+
+                    <div class="empty" >
+                    </div>
                 </div>
 
+
+                <div class="weekly_item_2">
+                    <!--<div class="selection_day">
+                        <p>TODAY</p>
+                    </div>   
+                            add a wrapper if necessary -->
+                            <div class="empty" id="empty_decoration_style">
+                            </div>
+                        <!--Delete selection id ! Later-->
+                        <div class="Main_pack_weekly" id ="get_selection_Main_pack_weekly">
+                            <p class="day">Friday</p>
+                            <p class="day_date">25 july</p>
+                            <p class="min_temp">min. 20°C</p>
+                            <p class="max_temp">max. 20°C</p>
+                            <img class="weekly_icons" src="/Images_source/PNG_icons_256x256/clear.png" alt="" >
+                            <p class="weekly_comment">sunny</p>
+                        </div>
+
+                        <div class="Main_pack_weekly">
+                            <p class="day">Friday</p>
+                            <p class="day_date">25 july</p>
+                            <p class="min_temp">min. 20°C</p>
+                            <p class="max_temp">max. 20°C</p>
+                            <img class="weekly_icons" src="/Images_source/PNG_icons_256x256/clear.png" alt="" >
+                            <p class="weekly_comment">sunny</p>
+                        </div>
+
+                        <div class="Main_pack_weekly">
+                            <p class="day">Friday</p>
+                            <p class="day_date">25 july</p>
+                            <p class="min_temp">min. 20°C</p>
+                            <p class="max_temp">max. 20°C</p>
+                            <img class="weekly_icons" src="/Images_source/PNG_icons_256x256/clear.png" alt="" >
+                            <p class="weekly_comment">sunny</p>
+                        </div>
+
+                        <div class="Main_pack_weekly">
+                            <p class="day">Friday</p>
+                            <p class="day_date">25 july</p>
+                            <p class="min_temp">min. 20°C</p>
+                            <p class="max_temp">max. 20°C</p>
+                            <img class="weekly_icons" src="/Images_source/PNG_icons_256x256/clear.png" alt="" >
+                            <p class="weekly_comment">sunny</p>
+                        </div>
+
+                        <div class="Main_pack_weekly">
+                            <p class="day">Friday</p>
+                            <p class="day_date">25 july</p>
+                            <p class="min_temp">min. 20°C</p>
+                            <p class="max_temp">max. 20°C</p>
+                            <img class="weekly_icons" src="/Images_source/PNG_icons_256x256/clear.png" alt="" >
+                            <p class="weekly_comment">sunny</p>
+                        </div>
+
+                        <div class="Main_pack_weekly">
+                            <p class="day">Friday</p>
+                            <p class="day_date">25 july</p>
+                            <p class="min_temp">min. 20°C</p>
+                            <p class="max_temp">max. 20°C</p>
+                            <img class="weekly_icons" src="/Images_source/PNG_icons_256x256/clear.png" alt="" >
+                            <p class="weekly_comment">sunny</p>
+                        </div>
+
+                        <div class="Main_pack_weekly">
+                            <p class="day">Friday</p>
+                            <p class="day_date">25 july</p>
+                            <p class="min_temp">min. 20°C</p>
+                            <p class="max_temp">max. 20°C</p>
+                            <img class="weekly_icons" src="/Images_source/PNG_icons_256x256/clear.png" alt="" >
+                            <p class="weekly_comment">sunny</p>
+                        </div>
+
+                        <div class="empty" id="empty_decoration_style">
+                        </div>
+
+                    
+                </div>
             </section>
+
+            <!--</div> -->
+        </div>
 
 
     </body>

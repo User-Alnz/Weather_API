@@ -9,6 +9,8 @@
 }
 /*Only colors*/
 
+
+/*Fonts from => top_bar_menu */
 #App_name
 {
     font-family: "Nunito Sans", sans-serif;
@@ -45,6 +47,7 @@
     font-size: 1em;    
 }
 
+/* Fonts from => daily_weather_data */
 #daily_sunrise
 {
     font-family: "Nunito Sans", sans-serif;
@@ -162,3 +165,51 @@
     font-size: 1rem;
 }
 
+/*Fonts form => weekly_weather_data*/
+#selection_pointer
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 650;
+    font-style: normal;
+    font-variation-settings: "wdth" 100, "YTLC" 500;
+    color: #f6a71b;
+    font-size: 0.6em;
+}
+
+#selection_button
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 650;
+    font-style: normal;
+    font-variation-settings: "wdth" 100, "YTLC" 500;
+    color: whitesmoke;
+    font-size: 0.6em;
+}
+
+.day
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 650;
+    font-style: normal;
+    font-variation-settings: "wdth" 100, "YTLC" 500;
+    color: whitesmoke;
+    font-size: 1em;
+}
+
+.day_date, .min_temp, .max_temp, .weekly_comment
+{
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings: "wdth" 100, "YTLC" 500;
+    color: whitesmoke;
+    font-size: 0.8em;
+}
+.weekly_icons
+{
+    height: 2.3rem;
+}

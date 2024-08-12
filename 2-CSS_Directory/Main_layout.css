@@ -9,12 +9,18 @@ html,body{
 .container
 {
     background-image: linear-gradient(rgba(255 255 255 / 18%), rgba(0 0 0 / 80%)),
-    url(/Images_source/UI_landscape_interface/landscape_Images_sources/Background_noon.jpg);
+    url(/Images_source/UI_landscape_interface/landscape_Images_sources/Background_late_after_noon.jpg);
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
-
-
+.empty_layout_room_manager
+{
+    flex-grow: 0.6;
+}
