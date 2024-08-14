@@ -1,4 +1,5 @@
-body{
+body
+{
     background-color:#1C2833;
 }
 
@@ -10,7 +11,8 @@ p{
 }
 
 /* -- MAIN PAGE --*/
-.container{
+.container
+{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,7 +20,8 @@ p{
     height: 100vh;
 }
 
-.main_card{
+.main_card
+{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,18 +32,21 @@ p{
     background-color: #F7F9F9;
 }
 
-.item_1{
+.item_1
+{
     padding: 2rem 1rem 2rem 1rem;
 }
 
 /* Children's => item_1 || CSS elements from item_1*/
-#search_bar{
+#search_bar
+{
     width: 12rem;
     height: 2rem;
     border-radius: 7px;
 }
 
-#search_button{
+#search_button
+{
     width: 3rem;
     height: 3rem;
     border: none;
@@ -48,17 +54,20 @@ p{
 }
 /*End Formating children's item_1*/
 
-.item_2{
+.item_2
+{
     padding: 1rem 1rem 1rem 1rem;
 }
 
 /* Children's => item_3 || CSS elements from item_3*/
-#temperature{
+#temperature
+{
     margin: 0;
     font-size: 7rem;
 }
 
-#location{
+#location
+{
     margin: 0;
     font-size: 4rem;
 }

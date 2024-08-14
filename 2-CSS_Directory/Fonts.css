@@ -3,6 +3,7 @@
 {
     color:  whitesmoke;
 }
+
 #Choose_ENG, #Farhenheit 
 {
     color:  whitesmoke;
@@ -23,6 +24,7 @@
     color: black;
     font-size: 1.5em; 
 }
+
 #location{
     font-family: "Nunito Sans", sans-serif;
     font-optical-sizing: auto;
@@ -34,6 +36,13 @@
     color: whitesmoke;
     font-size: 1em;
 }
+
+
+#Choose_Celsius, #Farhenheit, #Choose_ENG, #Choose_FR
+{
+    font-size: 1em;
+}
+
 .menu
 {
     font-family: "Nunito Sans", sans-serif;
@@ -60,6 +69,7 @@
     color: whitesmoke;
     font-size: 0.8em;
 }
+
 #daily_sunset
 {
     font-family: "Nunito Sans", sans-serif;
@@ -85,6 +95,7 @@
     color: whitesmoke;
     font-size: 1em;
 }
+
 #current_temperature
 {
     font-family: "Nunito Sans", sans-serif;
@@ -143,6 +154,7 @@
     color: whitesmoke;
     font-size: 0.8em;
 }
+
 .name_daily_status, .current_hours
 {
     font-family: "Nunito Sans", sans-serif;
@@ -165,7 +177,7 @@
     font-size: 1rem;
 }
 
-/*Fonts form => weekly_weather_data*/
+/*Fonts from => weekly_weather_data*/
 #selection_pointer
 {
     font-family: "Nunito Sans", sans-serif;
@@ -209,6 +221,7 @@
     color: whitesmoke;
     font-size: 0.8em;
 }
+
 .weekly_icons
 {
     height: 2.3rem;

@@ -1,9 +1,10 @@
 /*Background & background picture*/
-html,body{
-
+html,body
+{
     margin:0;
     padding: 0;
     height: 100vh;
+    font-size: 1vw; 
 }
 
 .container
@@ -14,13 +15,58 @@ html,body{
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-
+    
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 }
 
+.top_bar_menu
+{
+    position: fixed;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;/*take into account padding margin into children element to size the box*/
+    width: 100vw;
+}
+
 .empty_layout_room_manager
 {
-    flex-grow: 0.6;
+    flex-grow: 1;
+}
+
+/*RESPONSIVE LAYOUT - For phone especially - 1366px width & orientation: portrait*/
+
+@media only screen and (max-width: 1366px) and (orientation : portrait)
+{
+    html,body
+    {
+        font-size: 2vw; 
+    }
+    .container
+    {
+        justify-content: space-evenly;
+    }
+
+    .daily_weather_data
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 1rem 3rem 1rem 3rem;
+    }
+    .day_item_1 
+    {
+        padding-bottom: 5rem;
+    }
+
+    .empty_layout_room_manager {
+        flex-grow: 0.4;
+    }
+
+    .top_bar_menu 
+    {
+        font-size: 1.5vw;
+    }
 }

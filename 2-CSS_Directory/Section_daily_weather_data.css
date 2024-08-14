@@ -30,7 +30,7 @@
 
 #daily_sunrise
 {
- margin-bottom: 0;
+    margin-bottom: 0;
 }
 #daily_sunset
 {
@@ -45,16 +45,18 @@
     align-items: flex-start;
     justify-content: space-between;
     padding: 0rem 1.3rem 0rem 1rem;
-
 }
+
 #current_temperature
 {
     margin: 0;
 }
+
 #apparent_temperature
 {
     margin-bottom: 0;
 }
+
 #apparent_temperature_description
 {
     margin-top: 0.2rem;
@@ -98,7 +100,6 @@
 {
     display: flex;
     flex-direction: row;
-
 }
 
 .pack_time
@@ -119,6 +120,7 @@
     margin-top: 0.6rem;
     margin-bottom: 0;
 }
+
 .current_hours
 {
     margin-top: 0.6rem;
