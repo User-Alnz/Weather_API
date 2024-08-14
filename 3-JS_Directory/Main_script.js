@@ -1,7 +1,21 @@
 import {ft_Call_Meteomatics_API} from "./Get_API_data.js";
+import {ft_Get_date_today, ft_display_icon_current_weather} from "./Js-functions.js";
 
-var Data_collection = [];
+var Hourly_data_collection = [];
+var Daily_data_collection = [];
+
+/* daily_weather_data = Selection */
+var icon_current_weather = document.getElementById("icon_current_weather");
 const display_date_today = document.getElementById("date");
 
-//ft_Call_Meteomatics_API(Data_collection);
-console.log(Data_collection);
+
+display_date_today.innerHTML = ft_Get_date_today();
+
+ft_display_icon_current_weather();
+
+
+
+//ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_collection);
+
+
+
