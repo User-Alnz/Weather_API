@@ -12,10 +12,15 @@ const display_date_today = document.getElementById("date");
 display_date_today.innerHTML = ft_Get_date_today();
 
 ft_display_icon_current_weather();
+console.log("Hourly_data_collection");
+console.log(Hourly_data_collection);
+console.log("Daily_data_collection");
+console.log(Daily_data_collection);
+console.log("Daily_data_collection -> sunset");
+//console.log(Daily_data_collection[0][2]);
 
 
-
-//ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_collection);
+ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_collection);
 
 
 
