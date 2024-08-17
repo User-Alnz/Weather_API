@@ -9,10 +9,9 @@ let     url_daily;
 function ft_transform_JSON_to_Table_Daily(data_daily, Daily_data_collection)
 {
     let     idx_row = 0;
-    Daily_data_collection[idx_row] = ['time', 'unit', 'sunrise', 'unit',  'sunset', 'unit', 'precipitation sum', 'shower_sum', 'unit', 'snowfall_sum', 'unit', 'wind direction', 'unit', 'wind guts', 'unit', 'wind speed', 'unit'];
-    //console.log(Daily_data_collection);
-    
 
+    Daily_data_collection[idx_row] = ['time', 'unit', 'sunrise', 'unit',  'sunset', 'unit', 'precipitation sum', 'unit', 'shower_sum', 'unit', 'snowfall_sum', 'unit', 'wind direction', 'unit', 'wind guts', 'unit', 'wind speed', 'unit'];
+    
     while(++idx_row < data_daily.daily.time.length)
     {
         if(!Daily_data_collection[idx_row])
@@ -27,7 +26,7 @@ function ft_transform_JSON_to_Table_Daily(data_daily, Daily_data_collection)
         Daily_data_collection[idx_row].push(data_daily.daily.sunset[idx_row]);
         Daily_data_collection[idx_row].push(data_daily.daily_units.sunset);
 
-        Daily_data_collection[idx_row].push(data_daily.daily.precipitation_sum);
+        Daily_data_collection[idx_row].push(data_daily.daily.precipitation_sum[idx_row]);
         Daily_data_collection[idx_row].push(data_daily.daily_units.precipitation_sum);
 
         Daily_data_collection[idx_row].push(data_daily.daily.showers_sum[idx_row]);
@@ -45,20 +44,18 @@ function ft_transform_JSON_to_Table_Daily(data_daily, Daily_data_collection)
         Daily_data_collection[idx_row].push(data_daily.daily.wind_speed_10m_max[idx_row]);
         Daily_data_collection[idx_row].push(data_daily.daily_units.wind_speed_10m_max);
 
-        //console.log(Daily_data_collection);
     }
-    //console.log(Daily_data_collection);
+    
     return (Daily_data_collection);
 }
 
 function ft_transform_JSON_to_Table_Hourly(data_hourly, Hourly_data_collection)
 {
     let     idx_row = 0;
-    // Data collection define below
-        Hourly_data_collection[idx_row] = ['time', 'temperature_2m', 'unit', 'wind_direction_10m', 'unit', 'wind_speed_10m', 'unit', 'snowfall', 'unit', 'rain', 'unit','cloud_cover', 'unit'];
-        //console.log(Hourly_data_collection[idx_row]);
-           
     
+    Hourly_data_collection[idx_row] = ['time', 'temperature_2m', 'unit', 'wind_direction_10m', 'unit', 'wind_speed_10m', 'unit', 'snowfall', 'unit', 'rain', 'unit','cloud_cover', 'unit'];
+       
+           
     while(++idx_row < data_hourly.hourly.time.length)
     {
       if (!Hourly_data_collection[idx_row]) 
@@ -84,9 +81,8 @@ function ft_transform_JSON_to_Table_Hourly(data_hourly, Hourly_data_collection)
       Hourly_data_collection[idx_row].push(data_hourly.hourly.cloud_cover[idx_row]);
       Hourly_data_collection[idx_row].push(data_hourly.hourly_units.cloud_cover);
 
-        //console.log(Hourly_data_collection[idx_row]);
     }
-    //console.log(Hourly_data_collection);
+    
     return(Hourly_data_collection);
 } 
 
@@ -95,67 +91,91 @@ function ft_transform_JSON_to_Table_Hourly(data_hourly, Hourly_data_collection)
 
 export function ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_collection)
 {
+
     function ft_get_daily_Weather_Data()
     {
-        fetch(url_daily, {
+        return fetch(url_daily, // return itself then done and tab Daily_data fully populated
+        {
             method : 'GET',
         })
-        .then((response)=>{
+
+        .then((response)=>
+        {
             if(!response.ok)
             {
                 throw new Error ('impossible to get daily data ');
             }
             return(response.json());
         })
-        .then((data_daily) =>{
+
+        .then((data_daily) =>
+        {
             //console.log(data_daily);
             ft_transform_JSON_to_Table_Daily(data_daily, Daily_data_collection);
-
+           
         })
+
         .catch(error=>console.log(error));
 
     }
 
-    function ft_get_hourly_Weather_Data() 
+    function ft_get_hourly_Weather_Data()
     {
-        fetch(url_hourly, {
-        method : 'GET',
+        return fetch(url_hourly, 
+        {
+            method : 'GET',
         })
-        .then((response) =>{ 
+
+        .then((response) =>
+        { 
             if(!response.ok)
                 {
                     throw new Error('impossible to get hourly data');
                 }
            return (response.json());
         })
-        .then ((data_hourly) =>{
+
+        .then ((data_hourly) =>
+        {
             //console.log(data_hourly);
             ft_transform_JSON_to_Table_Hourly(data_hourly, Hourly_data_collection);
         })
+
         .catch(error=>console.log(error));
     }
 
     function ft_Get_Current_Location()
     {
-    // GET current latitude and longitude || Documentation : https://developer.mozilla.org/en-US/docs/Web/API/GeolocationCoordinates
-        if (!navigator.geolocation)
+        // Return promise both function below are done 
+        return new Promise((resolve, reject) => 
         {
-            console.log("Impossible to get current location - Verrify if you allowed access in your browser options");
-        }
-        else{
-            navigator.geolocation.getCurrentPosition((position) => {
+            
+       
+            // GET current latitude and longitude || Documentation : https://developer.mozilla.org/en-US/docs/Web/API/GeolocationCoordinates
+            if (!navigator.geolocation)
+            {
+                console.log("Impossible to get current location - Verrify if you allowed access in your browser options");
+                reject(new Error("Geolocation not supported or access denied"));
+            }
+            else{
+                navigator.geolocation.getCurrentPosition((position) => {
 
-                latitude = position.coords.latitude.toFixed(2);
-                longitude = position.coords.longitude.toFixed(2);
-                url_hourly = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relative_humidity_2m,rain,snowfall,cloud_cover,wind_speed_10m,wind_direction_10m&timezone=Europe%2FLondon&models=meteofrance_seamless`;
-                url_daily = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,daylight_duration,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max,wind_direction_10m_dominant&timezone=Europe%2FLondon&models=meteofrance_seamless`;
-                //console.log(`latitude is : ${latitude} longitude is : ${longitude}`);
-                //console.log(position.coords.toJSON());
-                //console.log(url);
-                ft_get_hourly_Weather_Data();
-                ft_get_daily_Weather_Data();
-            })
-        }
+                    latitude = position.coords.latitude.toFixed(2);
+                    longitude = position.coords.longitude.toFixed(2);
+                    url_hourly = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relative_humidity_2m,rain,snowfall,cloud_cover,wind_speed_10m,wind_direction_10m&timezone=Europe%2FLondon&models=meteofrance_seamless`;
+                    url_daily = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,daylight_duration,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max,wind_direction_10m_dominant&timezone=Europe%2FLondon&models=meteofrance_seamless`;
+                    //console.log(`latitude is : ${latitude} longitude is : ${longitude}`);
+                    //console.log(position.coords.toJSON());
+                    //console.log(url);
+
+                    Promise.all([ft_get_hourly_Weather_Data(),ft_get_daily_Weather_Data()]) //Promise.all wait both call got fullfiled
+                    .then(()=>resolve())
+                    .catch(reject);
+                })
+            }
+        });
+
     }
-        ft_Get_Current_Location();
+      
+    return (ft_Get_Current_Location()); // Return the promises and exec function
 }

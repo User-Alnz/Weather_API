@@ -13,15 +13,19 @@ export function ft_Get_date_today ()
     const   date = obj_day.getDate();
     const   month = obj_day.getMonth();
     const   hours = obj_day.getHours();
-    const   minutes = obj_day.getMinutes();
-    // display obj_day => console.log(obj_day);
+    let   minutes = obj_day.getMinutes(); // type of is 'number'!
+
+    if (minutes >= 0 && minutes <= 9)
+    {
+        minutes = minutes.toString(); //transf 'int' to 'str'
+        minutes = '0' + minutes;
+    }
 
     string = `${dayNames_ENG[day-1]} ${date} ${monthNames_ENG[month]} ${hours_DoubleDigits_format[hours]}:${minutes}`;
-
     return (string);
 }
 
-export function ft_display_icon_current_weather(var_icon_current_weather)
+export function ft_display_icon_current_weather(var_icon_current_weather, )
 {
     
     var     day;
