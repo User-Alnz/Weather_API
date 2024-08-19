@@ -1,7 +1,7 @@
 import {ft_Call_Meteomatics_API} from "./Get_API_data.js";
 import {ft_get_date_today} from "./handle_dates.js";
 import {ft_get_sunrise, ft_get_sunset, ft_display_weather_for_the_day, ft_temperature_right_now, ft_display_apparent_temperature } from "./daily_weather_data_functions.js";
-import { find_min_value, find_max_value} from "./weekly_weather_data_functions.js";
+import {ft_handle_Main_pack_weekly} from "./weekly_weather_data_functions.js";
 
 var     Hourly_data_collection = [];
 var     Daily_data_collection = [];
@@ -18,8 +18,10 @@ const   daily_temp_collection = document.getElementsByClassName("daily_temp");
 
 
 /* weekly_weather_data - selection in DOM*/
-const   min_temp_collection = document.getElementsByClassName("min_temp");
-const   max_temp_collection = document.getElementsByClassName("max_temp");
+
+
+const   weekly_item_1 = document.getElementsByClassName("weekly_item_1");
+const   Main_pack_weekly_collection = document.getElementsByClassName("Main_pack_weekly");
 
 
 /*This function call API and store data temporary into tabs */
@@ -34,9 +36,10 @@ async function main()
     try
     {
 
-        //console.log(Daily_data_collection);
+        console.log(Daily_data_collection);
         console.log(Hourly_data_collection);
         //console.log(daily_temp_collection);
+        console.log(Main_pack_weekly_collection);
 
         /* daily_weather_data - selection in DOM */
         display_sunrise.innerHTML = ft_get_sunrise(Daily_data_collection);
@@ -47,24 +50,7 @@ async function main()
         ft_display_weather_for_the_day(daily_temp_collection, Hourly_data_collection);
 
         /* weekly_weather_data - selection in DOM*/
-        var hourly_array_start = 1;
-        var hourly_array_stop = 24;
-        var off_set = 24;
-
-        min_temp_collection[0].innerHTML = find_min_value (hourly_array_start, hourly_array_stop, Hourly_data_collection);
-        max_temp_collection[0].innerHTML = find_max_value(hourly_array_start, hourly_array_stop, Hourly_data_collection);
-        hourly_array_start += off_set;
-        hourly_array_stop += off_set;
-
-        min_temp_collection[1].innerHTML = find_min_value (hourly_array_start, hourly_array_stop, Hourly_data_collection);
-        max_temp_collection[1].innerHTML = find_max_value(hourly_array_start, hourly_array_stop, Hourly_data_collection);
-        hourly_array_start += off_set;
-        hourly_array_stop += off_set;
-
-        min_temp_collection[2].innerHTML = find_min_value (hourly_array_start, hourly_array_stop, Hourly_data_collection);
-        max_temp_collection[2].innerHTML = find_max_value(hourly_array_start, hourly_array_stop, Hourly_data_collection);
-        hourly_array_start += off_set;
-        hourly_array_stop += off_set;
+        ft_handle_Main_pack_weekly(weekly_item_1, Main_pack_weekly_collection, Hourly_data_collection);
         
 
     }
