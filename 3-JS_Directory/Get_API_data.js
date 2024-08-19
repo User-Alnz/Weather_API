@@ -27,7 +27,7 @@ export function ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_colle
 
                     latitude = position.coords.latitude.toFixed(2);
                     longitude = position.coords.longitude.toFixed(2);
-                    url_hourly = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relative_humidity_2m,rain,snowfall,cloud_cover,wind_speed_10m,wind_direction_10m&timezone=Europe%2FLondon&models=meteofrance_seamless`;
+                    url_hourly = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=temperature_2m,relative_humidity_2m,rain,snowfall,cloud_cover,wind_speed_10m,wind_direction_10m,apparent_temperature&timezone=Europe%2FLondon&models=meteofrance_seamless`;
                     url_daily = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=weather_code,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,daylight_duration,precipitation_sum,rain_sum,showers_sum,snowfall_sum,precipitation_hours,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max,wind_direction_10m_dominant&timezone=Europe%2FLondon&models=meteofrance_seamless`;
                     //console.log(`latitude is : ${latitude} longitude is : ${longitude}`);
                     //console.log(position.coords.toJSON());
@@ -87,7 +87,7 @@ export function ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_colle
 
         .then ((data_hourly) =>
         {
-            //console.log(data_hourly);
+            console.log(data_hourly);
             ft_transform_JSON_to_Table_Hourly(data_hourly, Hourly_data_collection);
         })
 
@@ -158,7 +158,7 @@ function ft_transform_JSON_to_Table_Hourly(data_hourly, Hourly_data_collection)
     idx_row = 0;
     idx_jsonFile = 0;
     
-    Hourly_data_collection[idx_row] = ['time', 'temperature_2m', 'unit', 'wind_direction_10m', 'unit', 'wind_speed_10m', 'unit', 'snowfall', 'unit', 'rain', 'unit','cloud_cover', 'unit'];
+    Hourly_data_collection[idx_row] = ['time', 'temperature_2m', 'unit', 'apparent_temperature', 'unit', 'wind_direction_10m', 'unit', 'wind_speed_10m', 'unit', 'snowfall', 'unit', 'rain', 'unit','cloud_cover', 'unit'];
        
     while(idx_jsonFile < data_hourly.hourly.time.length)
     {
@@ -168,9 +168,12 @@ function ft_transform_JSON_to_Table_Hourly(data_hourly, Hourly_data_collection)
         Hourly_data_collection[idx_row] = [];  
 
         Hourly_data_collection[idx_row].push(data_hourly.hourly.time[idx_jsonFile]);
-
+        
         Hourly_data_collection[idx_row].push(data_hourly.hourly.temperature_2m[idx_jsonFile]);
         Hourly_data_collection[idx_row].push(data_hourly.hourly_units.temperature_2m);
+
+        Hourly_data_collection[idx_row].push(data_hourly.hourly.apparent_temperature[idx_jsonFile]);
+        Hourly_data_collection[idx_row].push(data_hourly.hourly_units.apparent_temperature);
 
         Hourly_data_collection[idx_row].push(data_hourly.hourly.wind_direction_10m[idx_jsonFile]);
         Hourly_data_collection[idx_row].push(data_hourly.hourly_units.wind_direction_10m);

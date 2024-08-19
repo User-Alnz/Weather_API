@@ -1,32 +1,3 @@
-export function ft_get_date_today ()
-{
-    const   dayNames_ENG = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" ];
-    const   monthNames_ENG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const   dayNames_FR = ["Lundi", "Mardi", "Mercredi","Jeudi", "Vendredi", "Samedi", "Dimanche"];
-    const   monthNames_FR = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
-    const   hours_DoubleDigits_format = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09","10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"];
-
-    let     string;
-    var     obj_day;
-    
-    obj_day = new Date();
-
-    const   day = obj_day.getDay();
-    const   date = obj_day.getDate();
-    const   month = obj_day.getMonth();
-    const   hours = obj_day.getHours();
-    let     minutes = obj_day.getMinutes(); // type of is 'number'!
-
-    if (minutes >= 0 && minutes <= 9)
-    {
-        minutes = minutes.toString(); //transf 'int' to 'str'
-        minutes = '0' + minutes;
-    }
-
-    string = `${dayNames_ENG[day-1]} ${date} ${monthNames_ENG[month]} ${hours_DoubleDigits_format[hours]}:${minutes}`;
-    return (string);
-}
-
 
 export function ft_get_sunrise(Daily_data_collection)
 {
@@ -102,6 +73,22 @@ export function ft_display_weather_for_the_day(var_daily_temp_collection_by_clas
     var_daily_temp_collection_by_class[7].innerHTML = nine_PM;
 }
 
+export function ft_display_apparent_temperature(Hourly_data_collection)
+{
+    var     apparent_temperature;
+    var     obj_day;
+    
+    apparent_temperature = 'Feels like ';
+    obj_day = new Date();
+
+    const   hours = obj_day.getHours();
+
+    apparent_temperature += Hourly_data_collection[hours+1][3];
+    apparent_temperature +=  '°';
+
+    return (apparent_temperature);
+}
+
 export function ft_temperature_right_now(Hourly_data_collection)
 {
     var     temperature_now;
@@ -109,6 +96,7 @@ export function ft_temperature_right_now(Hourly_data_collection)
 
     temperature_now = '+ '
     obj_day = new Date();
+
     const   hours = obj_day.getHours();
 
     temperature_now += Hourly_data_collection[hours+1][1];
