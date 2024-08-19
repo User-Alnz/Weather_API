@@ -24,8 +24,8 @@ export function ft_handle_Main_pack_weekly(weekly_item_1, Main_pack_weekly_colle
     }
 
 }
-
-    function display_day(idx)
+    // Below all function called into ft_handle_Main_pack_weekly 
+    function    display_day(idx)
     {
         const   dayNames_ENG = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ];
         var     obj_day;
@@ -44,7 +44,7 @@ export function ft_handle_Main_pack_weekly(weekly_item_1, Main_pack_weekly_colle
 
     function    display_date(idx)
     {   
-        const   monthNames_ENG = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const   monthNames_ENG = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
         var     obj_day;
         var     str;
 

@@ -51,6 +51,11 @@
     justify-content: center;
 }
 
+.empty /*already declared but here for better understanding weekly_item behavior*/
+{
+    flex-grow: 1;
+}
+
 .Main_pack_weekly
 {
     padding-left: 1rem;
@@ -58,10 +63,27 @@
     flex-grow: 1;
 }
 
-.empty /*already declared but here for better understanding weekly_item behavior*/
+.day
 {
-    flex-grow: 1;
+    padding-top: 1rem;
+    margin-bottom: 0;
 }
+
+.day_date
+{
+    margin-top: 0;
+}
+
+.min_temp
+{
+    margin-bottom: 0;
+}
+
+.max_temp
+{
+    margin-top: 0;
+}
+
 
 
 /* /!\ Visual Effect - USE JS later /!\*/
