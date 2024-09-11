@@ -36,10 +36,10 @@ async function main()
     try
     {
 
-        console.log(Daily_data_collection);
-        console.log(Hourly_data_collection);
+        //console.log(Daily_data_collection);
+        //console.log(Hourly_data_collection);
         //console.log(daily_temp_collection);
-        console.log(Main_pack_weekly_collection);
+        //console.log(Main_pack_weekly_collection);
 
         /* daily_weather_data - selection in DOM */
         display_sunrise.innerHTML = ft_get_sunrise(Daily_data_collection);

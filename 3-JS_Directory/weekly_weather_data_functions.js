@@ -15,6 +15,7 @@ export function ft_handle_Main_pack_weekly(weekly_item_1, Main_pack_weekly_colle
     while(idx < nb_days_in_week)
     {   
         Main_pack_weekly_collection[idx].getElementsByClassName('day')[0].innerHTML = display_day(idx);
+       
         Main_pack_weekly_collection[idx].getElementsByClassName('day_date')[0].innerHTML = display_date(idx);
         Main_pack_weekly_collection[idx].getElementsByClassName('max_temp')[0].innerHTML = `max <strong> +${find_max_value(hourly_array_start, hourly_array_stop, Hourly_data_collection)}°</strong> `;
         Main_pack_weekly_collection[idx].getElementsByClassName('min_temp')[0].innerHTML = `min <strong> +${find_min_value(hourly_array_start, hourly_array_stop, Hourly_data_collection)}°</strong> `;
@@ -34,9 +35,9 @@ export function ft_handle_Main_pack_weekly(weekly_item_1, Main_pack_weekly_colle
         obj_day = new Date();
         const   day = obj_day.getDay();
 
-        if(day+idx > 6)
-            str=`${dayNames_ENG[0]}`;
-        else
+        if(day+idx > 6) // when end of tab is 6. And idx will keep going futher therefor we need to offset idx and reset it to beginnig in code below
+            str=`${dayNames_ENG[(day+idx)%6 -1]}`; // there is 6 possibilities in a row so modulo of 6 will reset result possibilities to one for idx which are gonna be calculated next to 6. then -1 because getDay() got to 0 to 6 max LOL !
+        else 
             str = `${dayNames_ENG[day + idx]}`;
 
         return(str);
