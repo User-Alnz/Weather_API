@@ -36,12 +36,12 @@ async function main()
     try
     {
         /* this function cross data with WMO_Weather_codes & icones form "Images_source" */
-        ft_icone_manager();
+        ft_icone_manager(Hourly_data_collection);
 
         /* All console log tab and json file returned from API call */
         /* Tab is below */
         //console.log(Daily_data_collection);
-        //console.log(Hourly_data_collection);
+        console.log(Hourly_data_collection);
          /* Json is below */
         //console.log(daily_temp_collection);
         //console.log(Main_pack_weekly_collection);

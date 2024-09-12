@@ -60,7 +60,7 @@ export function ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_colle
 
         .then((data_daily) =>
         {
-            //console.log(data_daily);
+            //console.log(data_daily); // Display Json file in console
             ft_transform_JSON_to_Table_Daily(data_daily, Daily_data_collection);
            
         })
@@ -87,7 +87,7 @@ export function ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_colle
 
         .then ((data_hourly) =>
         {
-            console.log(data_hourly);
+            //console.log(data_hourly); // Display Json file in console
             ft_transform_JSON_to_Table_Hourly(data_hourly, Hourly_data_collection);
         })
 
@@ -158,7 +158,7 @@ function ft_transform_JSON_to_Table_Hourly(data_hourly, Hourly_data_collection)
     idx_row = 0;
     idx_jsonFile = 0;
     
-    Hourly_data_collection[idx_row] = ['time', 'temperature_2m', 'unit', 'apparent_temperature', 'unit', 'wind_direction_10m', 'unit', 'wind_speed_10m', 'unit', 'snowfall', 'unit', 'rain', 'unit','cloud_cover', 'unit'];
+    Hourly_data_collection[idx_row] = ['time', 'temperature_2m', 'unit', 'apparent_temperature', 'unit', 'wind_direction_10m', 'unit', 'wind_speed_10m', 'unit', 'snowfall', 'unit', 'rain', 'unit','cloud_cover', 'unit', 'WMO_codes'];
        
     while(idx_jsonFile < data_hourly.hourly.time.length)
     {
@@ -189,6 +189,8 @@ function ft_transform_JSON_to_Table_Hourly(data_hourly, Hourly_data_collection)
 
         Hourly_data_collection[idx_row].push(data_hourly.hourly.cloud_cover[idx_jsonFile]);
         Hourly_data_collection[idx_row].push(data_hourly.hourly_units.cloud_cover);
+
+        Hourly_data_collection[idx_row].push(data_hourly.hourly.weather_code[idx_jsonFile]);
 
         idx_jsonFile++;
 
