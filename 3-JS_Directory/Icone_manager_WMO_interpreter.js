@@ -9,38 +9,37 @@ idx_WMNO_code = Hourly_data_collection[1][15]; //for hours right now it returns 
 path_to_png_directory = "/Images_source/PNG_icons_256x256";
 path_to_WMO_Codes = "/WMO_Weather_Codes/WMO_Weather_codes_interpretations.json"; 
 
-
+//this function get json file to store it to WMO_json so that we can handle it for several purpose
 export function ft_retrieve_jsonfile()
 {
     xhr = new XMLHttpRequest();
-    xhr.open("GET", path_to_WMO_Codes , true );
-    xhr.responseType = "json"
+    xhr.open("GET", path_to_WMO_Codes, true );
+    xhr.responseType = "json";
 
     xhr.onload = function get_WMO_json()
     {
         
-        // console.log(this); //console.log obj structure 
+        // console.log(this); //console.log obj structure if needed
         if(this.readyState == 4 && this.status == 200 ) 
         {
             WMO_json = xhr.response;
-
-
-
-            console.log(WMO_json); 
-            //(Hourly_data_collection[1][16])
-
+            return(WMO_json);
         }
         else if(this.readyState == 4 && this.status !== 200 )
             console.error("Error while accesing file. Server status : " + this.status);
-        
+
         else
             console.error("Error with Request. Impossible to process", this.status, this.statusText);
     }
-
     xhr.send();
 }
 
+export function ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collection)
+{
+    var idx_WMNO_code; 
+    idx_WMNO_code = Hourly_data_collection[1][15]; //for hours right now it returns the WMO code we look for into json file.
 
+}
 /*
 // this function is only use to retrive png file and return it.
 export function ft_icone_manager()

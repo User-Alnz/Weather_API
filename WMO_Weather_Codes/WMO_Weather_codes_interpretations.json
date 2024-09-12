@@ -1,12 +1,12 @@
 {
 	"0":{
 			"day":{
-				"desciption" : "Clear sky today will be sunny. So have a nice day !",
+				"description" : "Clear sky today will be sunny. So have a nice day !",
 				"icon" : "clear.png" 	 
 			},
 			
 			"night":{
-				"desciption" : "Clear sky tonight. It's perfect time to stare at the stars !",
+				"description" : "Clear sky tonight. It's perfect time to stare at the stars !",
 				"icon" : "nt_clear.png" 
 			}
 		},

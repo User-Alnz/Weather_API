@@ -2,7 +2,7 @@ import {ft_Call_Meteomatics_API} from "./Get_API_data.js";
 import {ft_get_date_today} from "./handle_dates.js";
 import {ft_get_sunrise, ft_get_sunset, ft_display_weather_for_the_day, ft_temperature_right_now, ft_display_apparent_temperature } from "./daily_weather_data_functions.js";
 import {ft_handle_Main_pack_weekly} from "./weekly_weather_data_functions.js";
-import {ft_retrieve_jsonfile} from "./Icone_manager_WMO_interpreter.js";
+import {ft_retrieve_jsonfile, ft_parse_json_for_iconURL_for_current_hours} from "./Icone_manager_WMO_interpreter.js";
 
 // Json result from API call is temp store into tab to handle data
 var     Hourly_data_collection = [];
@@ -38,7 +38,8 @@ async function main()
         /* this function cross data with WMO_Weather_codes & icones form "Images_source" */
         //ft_icone_manager(Hourly_data_collection);
         
-        ft_retrieve_jsonfile();
+        ft_retrieve_jsonfile()
+        .then(() => {ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collection) })
         
 
         /* All console log tab and json file returned from API call */

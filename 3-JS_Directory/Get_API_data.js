@@ -87,7 +87,7 @@ export function ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_colle
 
         .then ((data_hourly) =>
         {
-            //console.log(data_hourly); // Display Json file in console
+            console.log(data_hourly); // Display Json file in console
             ft_transform_JSON_to_Table_Hourly(data_hourly, Hourly_data_collection);
         })
 
