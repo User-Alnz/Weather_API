@@ -20,8 +20,6 @@ const   daily_temp_collection = document.getElementsByClassName("daily_temp");
 
 
 /* weekly_weather_data - selection in DOM*/
-
-
 const   weekly_item_1 = document.getElementsByClassName("weekly_item_1");
 const   Main_pack_weekly_collection = document.getElementsByClassName("Main_pack_weekly");
 

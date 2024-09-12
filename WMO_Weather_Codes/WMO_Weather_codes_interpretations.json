@@ -1,48 +1,50 @@
 {
 	"0":{
 			"day":{
-				"desciption":"Clear sky today will be sunny. So have a nice day !",
-				"icon":"clear.png" 	 
+				"desciption" : "Clear sky today will be sunny. So have a nice day !",
+				"icon" : "clear.png" 	 
 			},
 			
 			"night":{
-				"desciption":"Clear sky tonight. It's perfect time to stare at the stars !",
-				"icon":"nt_clear.png" 
+				"desciption" : "Clear sky tonight. It's perfect time to stare at the stars !",
+				"icon" : "nt_clear.png" 
 			}
 		},
 
 	"1":{
 			"day":{
-				"description":"Mainly sunny. Could be cloudy but slightly.",
-				"icon": "mostlysunny.png"
+				"description" : "Mainly sunny. Could be cloudy but slightly.",
+				"icon" : "mostlysunny.png"
 			},
 
 			"night":{
-				"description":"Mainly clear. No clouds ahead, may be you could watch stars tonight.",
-				"icon": "nt_mostlysunny.png"
+				"description" : "Mainly clear. No clouds ahead, may be you could watch stars tonight.",
+				"icon" : "nt_mostlysunny.png"
 			}
 		},
 
 	"2":{
 			"day":{
-				"description":"Partly cloudy. Do not hope having too much sun, it will be shy today."
+				"description" : "Partly cloudy. Do not hope having too much sun, it will be shy today.",
+				"icon" : "partlysunny.png"
 				
 			},
 
 			"night":{
-				"description":"Partly cloudy. Sky is going to be cover to night."
-				
+				"description" : "Partly cloudy. Sky is going to be cover to night.",
+				"icon" : "nt_mostlycloudy.png"
 			}
 		},
 
 	"3":{
 			"day":{
-				"description":"Cloudy and overcast. Sky is going to be grey no suncream needed !"
-				
+				"description" : "Cloudy and overcast. Sky is going to be totaly grey no suncream needed !",
+				"icon" : "cloudy.png"
 			},
 
 			"night":{
-				"description":"Cloudy and overcast. Do not hope seeing stars or moon tonight, might be though !"
+				"description" : "Cloudy and overcast. Do not hope seeing stars or moon tonight, might be though !",
+				"icon" : "nt_cloudy.png"
 			}
 		},
 
@@ -53,25 +55,26 @@
 
 	"45":{
 			"day":{
-				"description":"Foggy. Be carefull if you get your car today."
-				
+				"description" : "Foggy. Be carefull if you get your car today.",
+				"icon" : "fog.png"
 			},
 
 			"night":{
-				"description":"Foggy. Hope you have a good sight."
+				"description" : "Foggy. Hope you have a good sight.",
+				"icon" : "nt_fog.png"
 				
 			}
 		},
 
 	"48":{
 			"day":{
-				"description":"Rime fog. Get you a warm coat."
-				
+				"description" : "Rime fog. Get you a warm coat it's forzen outside.",
+				"icon" : "fog.png"
 			},
 
 			"night":{
-				"description":"Rime fog. Get you a warm coat."
-				
+				"description" : "Rime fog. Get you a warm coat it's forzen outside beware if you drive.",
+				"icon" : "nt_fog.png"
 			}
 		},
 
@@ -82,56 +85,68 @@
 
 	"51":{
 			"day":{
-				"description":"Light drizzle, you might need a umbrella."
-				
+				"description" : "Light drizzle, you might need a umbrella.",
+				"icon" : "chancerain.png"
 			},
+
 			"night":{
-				"description":"Light drizzle tonight, you might need a umbrella."
-				
+				"description" : "Light drizzle tonight, you might need a umbrella.",
+				"icon" : "nt_chancerain.png"
 			}
 		},
 
 	"53":{
 			"day":{
-				"description":"Weather is drizzle, mind your umbrella could be usefull."
+				"description" : "Weather is drizzle, mind your umbrella could be usefull.",
+				"icon" : "chancerain.png"
 
 			},
-			"night":{
-				"description":"it's drizzle mind your umbrella could be usefull tonight."
 
+			"night":{
+				"description" : "it's drizzle mind your umbrella could be usefull tonight.",
+				"icon" : "nt_chancerain.png"
 			}
 		},
 
 	"55":{
 			"day":{
-				"description":"Heavy drizzle today. Don't forget your umbrella you'll realy need it."
+				"description" : "Heavy drizzle today. Don't forget your umbrella you'll realy need it.",
+				"icon" : "rain.png"
 				
 			},
+
 			"night":{
-				"description":"Heavy drizzle you'd better stay home."
+				"description" : "Heavy drizzle you'd better stay home.",
+				"icon" : "nt_rain.png"
 
 			}
 		},
 
 	"56":{
 			"day":{
-				"description":"Light freezing Drizzle. Get warm clothes is going to be cold."
-				
+				"description" : "Light freezing Drizzle. Get warm clothes is going to be cold.",
+				"icon" : "chancesleet.png"
+
 			},
+
 			"night":{
-				"description":"Light freezing Drizzle. Get warm clothes is going to be cold."
+				"description" : "Light freezing Drizzle. Get warm clothes is going to be cold.",
+				"icon" : "nt_chancesleet.png"
 				
 			}
 		},
 
 	"57":{
 			"day":{
-				"description":"Freezing drizzle it should be dense so beware."
-				
+				"description" : "Freezing drizzle it should be dense so beware.",
+				"icon" : "sleet.png"
+
 			},
+
 			"night":{
-				"description":"Freezing drizzle it should be dense so beware."
-				
+				"description" : "Freezing drizzle it should be dense so beware.",
+				"icon" : "nt_sleet.png"
+
 			}
 		},
 
@@ -142,30 +157,38 @@
 
 	"61":{
 			"day":{
-				"description":"Light rain could worth to get an umbrella but wouldn't bother you. But get one though!"
+				"description" : "Light rain could worth to get an umbrella but wouldn't bother you. But get one though!",
+				"icon" : "chancerain.png"
 			},
+
 			"night":{
-				"description":"Light rain could worth to get an umbrella but wouldn't bother you. But get one though!"
+				"description" : "Light rain could worth to get an umbrella but wouldn't bother you. But get one though!",
+				"icon" : "nt_chancerain.png"
 			}
 	},
+
 	"63":{
 			"day":{
-				"description":"It's rainning outside. If you don't have an umbrella do not expect being dry."
+				"description" : "It's rainning outside. If you don't have an umbrella do not expect being dry.",
+				"icon" : "chancerain.png"
 				
 			},
+
 			"night":{
-				"description":"It's rainning outside. If you don't have an umbrella do not expect being dry."
-				
+				"description" : "It's rainning outside. If you don't have an umbrella do not expect being dry.",
+				"icon" : "nt_chancerain.png"
 			}
 	},
+
 	"65":{
 			"day":{
-				"description":"It's going to rain heavily. You must need an umbrella !"
-				
+				"description" : "It's going to rain heavily. You must need an umbrella !",
+				"icon" : "rain.png"
 			},
+
 			"night":{
-				"description":"It's going to rain heavily. you should consider staying at home or avoiding open air events, you'll be disappointed."
-				
+				"description" : "It's going to rain heavily. you should consider staying at home or avoiding open air events, you'll be disappointed.",
+				"icon" : "nt_rain.png"
 			}
 	},
 
@@ -177,22 +200,25 @@
 
 	"66":{
 			"day":{
-				"description":"Light Freezing rain, take your precautions."
-
+				"description" : "Light Freezing rain, take your precautions.",
+				"icon" : "chancesleet.png"
 			},
+
 			"night":{
-				"description":"Light Freezing rain, take your precautions."
+				"description" : "Light Freezing rain, take your precautions.",
+				"icon" : "nt_chancesleet.png"
 				
 			}
 	},
 	"67":{
 			"day":{
-				"description":"Freezing rain should be dense so beware."
+				"description" : "Freezing rain should be dense so beware.",
+				"icon" : "sleet.png"
 
 			},
 			"night":{
-				"description":"Freezing rain should be dense so beware."
-
+				"description" : "Freezing rain should be dense so beware.",
+				"icon" : "nt_sleet.png"
 			}
 	},
 
@@ -204,45 +230,51 @@
 	
 	"71":{
 			"day":{
-				"description":"It will snow lightly today."
-				
+				"description" : "It will snow lightly today.",
+				"icon" : "chancesnow.png"
+
 			},
+
 			"night":{
-				"description":"It will snow lightly tonight."
-				
+				"description" : "It will snow lightly tonight.",
+				"icon" : "nt_chancesnow.png"
+
 			}
 	},
 
 	"73":{
 			"day":{
-				"description":"It will snow. It could worth to get a sled to go work. And if you don't have a job, you could do it though."
-				
+				"description" : "It will snow. It could worth to get a sled to go work. And if you don't have a job, you could do it though.",
+				"icon" : "chancesnow.png"
 			},
+
 			"night":{
-				"description":"It will snow tonight."
-				
+				"description" : "It will snow tonight.",
+				"icon" : "nt_chancesnow.png"
 			}
 	},
 
 	"75":{
 			"day":{
-				"description":"Heavy snow so beware."
-				
+				"description" : "Heavy snow so beware.",
+				"icon" : "snow.png"
 			},
-			"night":{
-				"description":"Heavy snow so beware."
 
+			"night":{
+				"description" : "Heavy snow so beware.",
+				"icon" : "nt_snow.png"
 			}
 	},
 
 	"77":{
 			"day":{
-				"description":"It will rain snow grains."
-				
+				"description" : "It will rain snow grains.",
+				"icon" : "snow.png"
 			},
+
 			"night":{
-				"description":"It will rain snow grains."
-				
+				"description" : "It will rain snow grains.",
+				"icon" : "nt_snow.png"
 			}
 	},
 
@@ -253,33 +285,36 @@
 
 	"80":{
 			"day":{
-				"description":"Light showers, sky could not be totaly grey but it will rain."
-				
+				"description" : "Light showers, sky could not be totaly grey but it will rain.",
+				"icon" : "chancerain.png"
 			},
+
 			"night":{
-				"description":"Light showers, sky could not be totaly grey but it will rain."
-				
+				"description" : "Light showers, sky could not be totaly grey but it will rain.",
+				"icon" : "nt_chancerain.png"
 			}
 	},
 	"81":{
 			"day":{
-				"description":"Showers, sky is not totaly cover but it's raining."
-				
+				"description" : "Showers, sky is not totaly cover but it's raining.",
+				"icon" : "chancerain.png"
 			},
+
 			"night":{
-				"description":"Showers, sky is not totaly cover but it's raining."
-				
+				"description" : "Showers, sky is not totaly cover but it's raining.",
+				"icon" : "nt_chancerain.png"
 			}
 	},
 
 	"82":{
 			"day":{
-				"description":"Heavy showers, sky is not totaly cover but it will rain heavily."
-				
+				"description" : "Heavy showers, sky is not totaly cover but it will rain heavily.",
+				"icon" : "rain.png"
 			},
+
 			"night":{
-				"description":"Heavy showers, sky is not totaly cover but it will rain heavily."
-				
+				"description" : "Heavy showers, sky is not totaly cover but it will rain heavily.",
+				"icon" : "nt_rain.png"
 			}
 	},
 
@@ -291,22 +326,27 @@
 
 	"85":{
 			"day":{
-				"description":"Light Snow showers. It wouldn't be totaly cover but expect light snow."
+				"description" : "Light Snow showers. It wouldn't be totaly cover but expect light snow.",
+				"icon" : "chanceflurries.png" 
 				
 			},
+
 			"night":{
-				"description":"Light Snow showers. It wouldn't be totaly cover but expect light snow."
-				
+				"description" : "Light Snow showers. It wouldn't be totaly cover but expect light snow.",
+				"icon" : "chanceflurries.png" 
 			}
 	},
 
 	"86":{
 			"day":{
-				"description":"Snow showers. It wouldn't be totaly cover but expect light snow."
+				"description" : "Snow showers. It wouldn't be totaly cover but expect light snow.",
+				"icon" : "flurries.png"
 				
 			},
+
 			"night":{
-				"description":"Snow showers. It wouldn't be totaly cover but expect light snow."
+				"description" : "Snow showers. It wouldn't be totaly cover but expect light snow.",
+				"icon" : "nt_flurries.png"
 			}
 	},
 
@@ -316,32 +356,40 @@
 
 	"95":{
 			"day":{
-				"description":"Thunderstorm today ! And it could also rain so be warned. ",
-				"image":"http://openweathermap.org/img/wn/11d@2x.png"
+				"description" : "Thunderstorm today ! And it could also rain so be warned. ",
+				"icon" : "chancetstorms.png"
+
 			},
+
 			"night":{
-				"description":"Thunderstorm tonight ! Call momy if you afraid, wish you good night.",
-				"image":"http://openweathermap.org/img/wn/11n@2x.png"
+				"description" : "Thunderstorm tonight ! Call momy if you afraid, wish you good night.",
+				"icon" : "nt_chancetstorms.png"
+
 			}
 	},
+
 	"96":{
 			"day":{
-				"description":"Light thunderstorms with hail. So be worry if you are outside or driving.",
-				"image":"http://openweathermap.org/img/wn/11d@2x.png"
+				"description" : "Light thunderstorms with hail. So be worry if you are outside or driving.",
+				"icon" : "tstorms.png"
+
 			},
+
 			"night":{
 				"description":"Light Thunderstorms With Hail. So be worry if you are outside or driving.",
-				"image":"http://openweathermap.org/img/wn/11n@2x.png"
+				"icon" : "nt_tstorms.png"
 			}
 	},
+
 	"99":{
 			"day":{
-				"description":"Thunderstorm with heavy hail. So really attention to your head ! Could worth to wait it's done before mooving."
-				
+				"description":"Thunderstorm with heavy hail. So really attention to your head ! Could worth to wait it's done before mooving.",
+				"icon" : "tstorms.png"
 			},
+
 			"night":{
-				"description":"Thunderstorm with heavy hail. So really attention to your head ! Could worth to wait it's done before mooving. You'd better stay home."
-				
+				"description":"Thunderstorm with heavy hail. So really attention to your head ! Could worth to wait it's done before mooving. You'd better stay home.",
+				"icon" : "nt_tstorms.png"
 			}
 	}
 
