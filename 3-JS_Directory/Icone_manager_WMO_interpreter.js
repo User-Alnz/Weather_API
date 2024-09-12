@@ -1,16 +1,48 @@
-
-
 var     xhr; // XML HTTP Request
 var     path_to_png_directory;
-var     path_to_WMO_Weather_Codes_Json;
-var     file_name_png;
-var     image_sprite_url;
+var     path_to_WMO_Codes;
+var     WMO_json;
+
+/*var idx_WMNO_code; 
+idx_WMNO_code = Hourly_data_collection[1][15]; //for hours right now it returns the WMO code we look for into json file */
 
 path_to_png_directory = "/Images_source/PNG_icons_256x256";
-path_to_WMO_Weather_Codes_Json = "/WMO_Weather_Codes/WMO_Weather_codes_interpretations.json"; 
+path_to_WMO_Codes = "/WMO_Weather_Codes/WMO_Weather_codes_interpretations.json"; 
+
+
+export function ft_retrieve_jsonfile()
+{
+    xhr = new XMLHttpRequest();
+    xhr.open("GET", path_to_WMO_Codes , true );
+    xhr.responseType = "json"
+
+    xhr.onload = function get_WMO_json()
+    {
+        
+        // console.log(this); //console.log obj structure 
+        if(this.readyState == 4 && this.status == 200 ) 
+        {
+            WMO_json = xhr.response;
 
 
 
+            console.log(WMO_json); 
+            //(Hourly_data_collection[1][16])
+
+        }
+        else if(this.readyState == 4 && this.status !== 200 )
+            console.error("Error while accesing file. Server status : " + this.status);
+        
+        else
+            console.error("Error with Request. Impossible to process", this.status, this.statusText);
+    }
+
+    xhr.send();
+}
+
+
+/*
+// this function is only use to retrive png file and return it.
 export function ft_icone_manager()
 {
 
@@ -20,11 +52,11 @@ export function ft_icone_manager()
 
     xhr.onload = function() 
     {
-        // console.log(this); //console.log obj structure 
+        console.log(this); //console.log obj structure 
         if(this.readyState == 4 && this.status == 200 ) 
         {
             //const imgblob = xhr.response; 
-            return (image_sprite_url);
+            
             // console.log(this.readyState); //check if 4: request finished and response is ready
         }
         else if(this.readyState == 4 && this.status !== 200 )
@@ -37,11 +69,4 @@ export function ft_icone_manager()
 
     xhr.send(); 
 
-}
-
-function ft_define_which_png_pick(file_name_png, path_to_WMO_Weather_Codes_Json)
-{
-    
-
-    return(file_name_png);
-}
+} */
