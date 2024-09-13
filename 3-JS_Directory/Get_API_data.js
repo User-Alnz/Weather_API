@@ -6,12 +6,13 @@ var     longitude;
 let     url_hourly;
 let     url_daily;
 
+//Main fucnction : 1- get geolocation / 2-give others functions urls for calls / 3-functions within calls populate tabs 'Hourly_data_collection, Daily_data_collection' from json file
 export function ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_collection)
 {
 
     function ft_get_Current_Location()
     {
-        // Return promise both function below are done 
+        // Return promise when both functions below are done. 
         return new Promise((resolve, reject) => 
         {
             
@@ -33,8 +34,8 @@ export function ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_colle
                     //console.log(position.coords.toJSON());
                     //console.log(url);
 
-                    Promise.all([ft_get_hourly_Weather_Data(),ft_get_daily_Weather_Data()]) //Promise.all wait both call got fullfiled
-                    .then(()=>resolve())
+                    Promise.all([ft_get_hourly_Weather_Data(),ft_get_daily_Weather_Data()]) //Promise.all wait both call got fullfiled. 
+                    .then(()=>resolve()) // security to be sure tabs got both populated. Wait exec of both func before resolve.
                     .catch(reject);
                 })
             }
@@ -87,7 +88,7 @@ export function ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_colle
 
         .then ((data_hourly) =>
         {
-            console.log(data_hourly); // Display Json file in console
+            //console.log(data_hourly); // Display Json file in console
             ft_transform_JSON_to_Table_Hourly(data_hourly, Hourly_data_collection);
         })
 
@@ -97,7 +98,7 @@ export function ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_colle
     return (ft_get_Current_Location()); // Return promise function got exe by calling itself
 }
 
-
+// This function transfrom json object into a tab
 function ft_transform_JSON_to_Table_Daily(data_daily, Daily_data_collection)
 {
     let     idx_row;
@@ -145,11 +146,12 @@ function ft_transform_JSON_to_Table_Daily(data_daily, Daily_data_collection)
         idx_jsonFile++;
         
     }
-
     //console.log(Daily_data_collection);
     return (Daily_data_collection);
 }
 
+
+// This function transfrom json object into a tab
 function ft_transform_JSON_to_Table_Hourly(data_hourly, Hourly_data_collection)
 {
     let     idx_row;
@@ -193,7 +195,6 @@ function ft_transform_JSON_to_Table_Hourly(data_hourly, Hourly_data_collection)
         Hourly_data_collection[idx_row].push(data_hourly.hourly.weather_code[idx_jsonFile]);
 
         idx_jsonFile++;
-
     }
     //console.log(Hourly_data_collection);
     return(Hourly_data_collection);

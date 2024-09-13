@@ -1,45 +1,87 @@
-var     xhr; // XML HTTP Request
+let     xhr; // XML HTTP Request
 var     path_to_png_directory;
 var     path_to_WMO_Codes;
 var     WMO_json;
 
-/*var idx_WMNO_code; 
-idx_WMNO_code = Hourly_data_collection[1][15]; //for hours right now it returns the WMO code we look for into json file */
 
 path_to_png_directory = "/Images_source/PNG_icons_256x256";
 path_to_WMO_Codes = "/WMO_Weather_Codes/WMO_Weather_codes_interpretations.json"; 
 
-//this function get json file to store it to WMO_json so that we can handle it for several purpose
-export function ft_retrieve_jsonfile()
-{
-    xhr = new XMLHttpRequest();
-    xhr.open("GET", path_to_WMO_Codes, true );
-    xhr.responseType = "json";
 
-    xhr.onload = function get_WMO_json()
-    {
+export async function main_script_handle_icons(Hourly_data_collection)
+{
+    
+    ft_retrieve_jsonfile()
+    .then((WMO_json)=>{
+        ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collection, WMO_json);
+    })
+    //ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collection, WMO_json);
+            
+}
+
+//this function get json file from directory
+async function ft_retrieve_jsonfile()
+{
+    return new Promise((resolve, reject) => {
         
-        // console.log(this); //console.log obj structure if needed
-        if(this.readyState == 4 && this.status == 200 ) 
+    
+        xhr = new XMLHttpRequest();
+        xhr.open("GET", path_to_WMO_Codes, true );
+        xhr.responseType = "json";
+
+        xhr.onload = function get_WMO_json()
         {
-            WMO_json = xhr.response;
-            return(WMO_json);
+            // console.log(this); //console.log obj structure if needed
+            if(this.readyState == 4 && this.status == 200 ) 
+            {
+                WMO_json = xhr.response;
+                console.log(WMO_json);
+                resolve(WMO_json);
+            }
+            else if(this.readyState == 4 && this.status !== 200 )
+            {
+                console.error("Error while accesing file. Server status : " + this.status);
+                reject(error);
+            }
+            else
+            {
+                console.error("Error with Request. Impossible to process", this.status, this.statusText);
+                reject(error);
+            }
+                
         }
-        else if(this.readyState == 4 && this.status !== 200 )
-            console.error("Error while accesing file. Server status : " + this.status);
-
-        else
-            console.error("Error with Request. Impossible to process", this.status, this.statusText);
-    }
-    xhr.send();
+        xhr.send();
+    })
 }
 
-export function ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collection)
+
+async  function ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collection, WMO_json)
 {
-    var idx_WMNO_code; 
-    idx_WMNO_code = Hourly_data_collection[1][15]; //for hours right now it returns the WMO code we look for into json file.
+    var     idx_WMNO_code;
+    var     array_length;
+    var     idx;
+    var     url;
 
+    console.log(WMO_json);
+    idx_WMNO_code = Hourly_data_collection[1][15]; //for hours right now it returns the WMO code we look for into json file.
+    array_length = Object.keys(WMO_json).length;
+    idx = 0;
+
+    while (idx < array_length)
+    {
+        if(idx_WMNO_code === WMO_json[idx] )
+        {
+            url = WMO_json[idx].day.icon;
+            console.log(url);
+            return(url);
+        }
+        idx ++;
+    }
 }
+
+
+
+
 /*
 // this function is only use to retrive png file and return it.
 export function ft_icone_manager()
