@@ -36,8 +36,6 @@ async function main()
     try
     {
         /* this function cross data with WMO_Weather_codes & icones form "Images_source" */
-        
-        
         main_script_handle_icons(Hourly_data_collection);
         
 
