@@ -16,6 +16,7 @@ const   display_sunset = document.getElementById("daily_sunset");
 const   display_date_today = document.getElementById("date");
 const   display_temp_now = document.getElementById("current_temperature");
 const   display_apparent_temperature = document.getElementById("apparent_temperature");
+const   display_apparent_temperature_description = document.getElementById("apparent_temperature_description");
 const   daily_temp_collection = document.getElementsByClassName("daily_temp");
 
 

@@ -12,7 +12,7 @@ export async function main_script_handle_icons(Hourly_data_collection, icon_curr
 {
     ft_retrieve_jsonfile()
     .then((WMO_json)=>{
-        ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collection, WMO_json);
+        return ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collection, WMO_json);
     })
     .then((url)=> {
         console.log(url);
@@ -67,14 +67,13 @@ async  function ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collecti
     idx = 0;
 
     return new Promise((resolve, reject) => {
-        
-   
+
         while (idx < array_length)
         {
-            if(idx_WMNO_code == Object.keys(WMO_json)[idx]) // if WMO Code from tab is same that idx key parsed in json
+            if(idx_WMNO_code == Object.keys(WMO_json)[idx]) // if WMO Code from tab is same than idx key parsed in json
             {
                 url = path_to_png_directory + '/' + WMO_json[idx].day.icon;
-                //console.log(url); // if need to check url
+                //console.log(url); // if need to check url.
                 resolve(url);
             }
         idx++;
@@ -83,6 +82,7 @@ async  function ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collecti
         reject(error);
     })
 }
+
 
 
 
