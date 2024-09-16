@@ -8,14 +8,15 @@ path_to_png_directory = "/Images_source/PNG_icons_256x256";
 path_to_WMO_Codes = "/WMO_Weather_Codes/WMO_Weather_codes_interpretations.json"; 
 
 
-export async function main_script_handle_icons(Hourly_data_collection, icon_current_weather)
+export async function main_script_handle_icons_for_the_day(Hourly_data_collection, icon_current_weather, display_apparent_temperature_description)
 {
-    ft_retrieve_jsonfile()
+    ft_retrieve_jsonfile() 
     .then((WMO_json)=>{
+        ft_display_description(Hourly_data_collection, WMO_json, display_apparent_temperature_description);
         return ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collection, WMO_json);
     })
     .then((url)=> {
-        console.log(url);
+        //console.log(url);
         ft_give_url_to_node_DOM(url, icon_current_weather);
     })
 }
@@ -83,7 +84,30 @@ async  function ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collecti
     })
 }
 
+async function ft_display_description(Hourly_data_collection, WMO_json, display_apparent_temperature_description)
+{
+    var     idx_WMNO_code;
+    var     array_length;
+    var     idx;
+    var     description;
 
+    //console.log(WMO_json); //if json file is needed
+    idx_WMNO_code = Hourly_data_collection[1][15]; //for hour right now it returns the WMO code we look for into json file.
+    array_length = Object.keys(WMO_json).length; //get length of json file
+    idx = 0;
+
+        while  (idx < array_length)
+        {
+            if(idx_WMNO_code == Object.keys(WMO_json)[idx])
+            {
+                description = WMO_json[idx].day.description;
+                //console.log(description);
+                display_apparent_temperature_description.innerHTML = description;
+                return(display_apparent_temperature_description);
+            }
+            idx++;
+        }
+}
 
 
 async function ft_give_url_to_node_DOM(url, icon_current_weather)
