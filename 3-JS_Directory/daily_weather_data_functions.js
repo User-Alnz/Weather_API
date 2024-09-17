@@ -5,13 +5,14 @@ export function ft_get_sunrise(Daily_data_collection)
     var     temp_store;
     var     sunrise;
 
-    temp_store = Daily_data_collection[1][2];
-    idx = temp_store.length - 5;
+    //console.log(Daily_data_collection); //if needed. 
+    temp_store = Daily_data_collection[1][2]; //value in the array from tab is this format : "2024-09-17T06:21" | "YYYY-MM-DDTHH:MM"
+    idx = temp_store.length - 5; //So we only need last 5 char in a row. 
     sunrise = 'Sunrise : ';
 
-    while(++idx < temp_store.length)
+    while(++idx < temp_store.length) //We loop through each char in array from -5 char before the end. 
     {
-        sunrise += temp_store[idx]; 
+        sunrise += temp_store[idx]; //Add each char one by one into string 'sunrise'. 
     }
     sunrise += ' AM';    
 
@@ -48,7 +49,8 @@ export function ft_display_weather_for_the_day(var_daily_temp_collection_by_clas
     var     six_PM;
     var     nine_PM;
 
-    midnight =  Hourly_data_collection[1][1] + Hourly_data_collection[1][2];
+    //console.log(Hourly_data_collection); // if needed. 
+    midnight =  Hourly_data_collection[1][1] + Hourly_data_collection[1][2]; // Ex format : Hourly_data_collection[1][1] = ('29') + Hourly_data_collection[1][2] = ('°C')
     var_daily_temp_collection_by_class[0].innerHTML = midnight;
 
     three_AM =  Hourly_data_collection[4][1] + Hourly_data_collection[4][2];
@@ -82,8 +84,7 @@ export function ft_display_apparent_temperature(Hourly_data_collection)
     obj_day = new Date();
 
     const   hours = obj_day.getHours();
-
-    apparent_temperature += Hourly_data_collection[hours+1][3];
+    apparent_temperature += Hourly_data_collection[hours+1][3]; //hours+1 because array strat to 0. First row indicates name of each column in tab. | ex : "time" , "temperature_2m", "unit" etc.. 
     apparent_temperature +=  '°';
 
     return (apparent_temperature);
@@ -105,13 +106,3 @@ export function ft_temperature_right_now(Hourly_data_collection)
     return (temperature_now);
 
 }
-
-
-
-/*
-Light rain gives up to 2–4 mm (0.07–0.15 in) of precipitation;
-Moderate rain gives 5–6 mm (0.19–0.23 in);
-Rain or strong rain gives up about 15–20 mm (0.59–0.78 in);
-Rainfall gives more than 30 mm (1.18 in).
-
-*/ 
