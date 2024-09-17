@@ -3,6 +3,7 @@ import {ft_get_date_today} from "./handle_dates.js";
 import {ft_get_sunrise, ft_get_sunset, ft_display_weather_for_the_day, ft_temperature_right_now, ft_display_apparent_temperature } from "./daily_weather_data_functions.js";
 import {ft_handle_Main_pack_weekly} from "./weekly_weather_data_functions.js";
 import {main_script_handle_icon_and_description_for_the_day} from "./Icone_manager_WMO_interpreter_for_the_day.js";
+import {main_script_handle_icons_and_descriptions_per_hours} from "./Icone_manager_WMO_interpreter_for_hours.js";
 
 // Json result from API call is temp store into tab to handle data
 var     Hourly_data_collection = [];
@@ -17,6 +18,7 @@ const   display_date_today = document.getElementById("date");
 const   display_temp_now = document.getElementById("current_temperature");
 const   display_apparent_temperature = document.getElementById("apparent_temperature");
 const   display_apparent_temperature_description = document.getElementById("apparent_temperature_description");
+const   Main_pack_daily_collection = document.getElementsByClassName("Main_pack");
 const   daily_temp_collection = document.getElementsByClassName("daily_temp");
 
 
@@ -38,6 +40,7 @@ async function main()
     {
         /* this function cross data with WMO_Weather_codes & icones form "Images_source" */
         main_script_handle_icon_and_description_for_the_day(Hourly_data_collection, icon_current_weather, display_apparent_temperature_description);
+        main_script_handle_icons_and_descriptions_per_hours(Hourly_data_collection, Main_pack_daily_collection);
         
 
         /* All console log tab and json file returned from API call */

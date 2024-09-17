@@ -24,8 +24,9 @@
         })
         .then((url)=> {
             //console.log(url);//if needed.
-            ft_give_url_to_node_DOM(url, icon_current_weather);
+            ft_display_icon(url, icon_current_weather);
         })
+        .catch(error=> console.error("error with main_script_handle_icon_and_description_for_the_day ", error));
     }
 
     //------------------------------------------------------------
@@ -76,9 +77,9 @@
         var     url;
 
         obj_day = new Date();
-        const hours = obj_day.getHours(); 
+        const hours = obj_day.getHours(); //Define current hour now to define where to find WMO code for row pointing the time it's now.
 
-        idx_WMNO_code = Hourly_data_collection[hours+1][15]; //define right WMO_code to pick from tab.
+        idx_WMNO_code = Hourly_data_collection[hours+1][15]; //define right WMO_code to pick from tab. | first row of tab is made of title like "time", "unit", "WMO_codes"etc.. So we start to idx 0+1.
         array_length = Object.keys(WMO_json).length; 
         idx = 0;
         //console.log(WMO_json); //if json file is needed.
@@ -129,7 +130,7 @@
     }
 
 
-    async function ft_give_url_to_node_DOM(url, icon_current_weather)
+    async function ft_display_icon(url, icon_current_weather)
     {
         icon_current_weather.src =  url;
         return(icon_current_weather.src);
