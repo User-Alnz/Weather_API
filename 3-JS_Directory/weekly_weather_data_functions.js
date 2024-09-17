@@ -2,7 +2,7 @@
         /* Main function  */
     //------------------------------------------------------------
 
-export function ft_handle_Main_pack_weekly(weekly_item_1, Main_pack_weekly_collection, Hourly_data_collection)
+export function ft_handle_Main_pack_weekly(Main_pack_weekly_collection, Hourly_data_collection)
 {   
     var     idx;
     var     nb_days_in_week;

@@ -7,8 +7,11 @@ var     WMO_json;
 path_to_png_directory = "/Images_source/PNG_icons_256x256";
 path_to_WMO_Codes = "/WMO_Weather_Codes/WMO_Weather_codes_interpretations.json"; 
 
+   //------------------------------------------------------------
+        /* Main function  */
+    //------------------------------------------------------------
 
-export async function main_script_handle_icons_for_the_day(Hourly_data_collection, icon_current_weather, display_apparent_temperature_description)
+export async function main_script_handle_icon_and_description_for_the_day(Hourly_data_collection, icon_current_weather, display_apparent_temperature_description)
 {
     ft_retrieve_jsonfile() 
     .then((WMO_json)=>{
@@ -20,6 +23,10 @@ export async function main_script_handle_icons_for_the_day(Hourly_data_collectio
         ft_give_url_to_node_DOM(url, icon_current_weather);
     })
 }
+
+ //------------------------------------------------------------
+        /*Below all functions called in main_script_handle_icons_for_the_day */
+//------------------------------------------------------------
 
 // this function get json file from directory
 async function ft_retrieve_jsonfile()
@@ -54,7 +61,7 @@ async function ft_retrieve_jsonfile()
     })
 }
 
-//this function cross WMO_code json with tab to find right image to return url in order to access it 
+//this function cross WMO_code json with tab to find right image and return url in order to access it 
 async  function ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collection, WMO_json)
 {
     var     idx_WMNO_code;

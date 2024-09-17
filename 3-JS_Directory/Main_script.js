@@ -2,7 +2,7 @@ import {ft_Call_Meteomatics_API} from "./Get_API_data.js";
 import {ft_get_date_today} from "./handle_dates.js";
 import {ft_get_sunrise, ft_get_sunset, ft_display_weather_for_the_day, ft_temperature_right_now, ft_display_apparent_temperature } from "./daily_weather_data_functions.js";
 import {ft_handle_Main_pack_weekly} from "./weekly_weather_data_functions.js";
-import {main_script_handle_icons_for_the_day} from "./Icone_manager_WMO_interpreter_for_the_day.js";
+import {main_script_handle_icon_and_description_for_the_day} from "./Icone_manager_WMO_interpreter_for_the_day.js";
 
 // Json result from API call is temp store into tab to handle data
 var     Hourly_data_collection = [];
@@ -21,7 +21,7 @@ const   daily_temp_collection = document.getElementsByClassName("daily_temp");
 
 
 /* weekly_weather_data - selection in DOM*/
-const   weekly_item_1 = document.getElementsByClassName("weekly_item_1");
+
 const   Main_pack_weekly_collection = document.getElementsByClassName("Main_pack_weekly");
 
 
@@ -37,7 +37,7 @@ async function main()
     try
     {
         /* this function cross data with WMO_Weather_codes & icones form "Images_source" */
-        main_script_handle_icons_for_the_day(Hourly_data_collection, icon_current_weather, display_apparent_temperature_description);
+        main_script_handle_icon_and_description_for_the_day(Hourly_data_collection, icon_current_weather, display_apparent_temperature_description);
         
 
         /* All console log tab and json file returned from API call */
@@ -58,7 +58,7 @@ async function main()
         ft_display_weather_for_the_day(daily_temp_collection, Hourly_data_collection);
 
         /* weekly_weather_data - selection in DOM*/
-        ft_handle_Main_pack_weekly(weekly_item_1, Main_pack_weekly_collection, Hourly_data_collection);
+        ft_handle_Main_pack_weekly(Main_pack_weekly_collection, Hourly_data_collection);
         
 
     }
