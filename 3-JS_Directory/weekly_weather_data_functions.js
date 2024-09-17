@@ -58,7 +58,7 @@ export function ft_handle_Main_pack_weekly(Main_pack_weekly_collection, Hourly_d
         var     str;
 
         obj_day = new Date();
-        const   date = obj_day.getDate();;
+        const   date = obj_day.getDate();
         const   month = obj_day.getMonth();
 
         str =`${date+idx} ${monthNames_ENG[month]}`;
@@ -104,5 +104,3 @@ export function ft_handle_Main_pack_weekly(Main_pack_weekly_collection, Hourly_d
         
         return(min);
     }
-
-
