@@ -20,7 +20,7 @@
         ft_retrieve_jsonfile() 
         .then((WMO_json)=>{
             ft_display_description(Hourly_data_collection, WMO_json, display_apparent_temperature_description);
-            return ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collection, WMO_json);
+            return ft_parse_json_toget_iconURL_for_current_hour(Hourly_data_collection, WMO_json);
         })
         .then((url)=> {
             //console.log(url);//if needed.
@@ -67,7 +67,7 @@
     }
 
     //this function cross WMO_code json with tab to find right image and return url in order to access it.
-    async  function ft_parse_json_for_iconURL_for_current_hours(Hourly_data_collection, WMO_json)
+    async  function ft_parse_json_toget_iconURL_for_current_hour(Hourly_data_collection, WMO_json)
     {
         
         var     obj_day;
@@ -77,9 +77,9 @@
         var     url;
 
         obj_day = new Date();
-        const hours = obj_day.getHours(); //Define current hour now to define where to find WMO code for row pointing the time it's now.
+        const hours = obj_day.getHours(); //Define current hour now to define where to find WMO code from the row pointing the time it's now.
 
-        idx_WMNO_code = Hourly_data_collection[hours+1][15]; //define right WMO_code to pick from tab. | first row of tab is made of title like "time", "unit", "WMO_codes"etc.. So we start to idx 0+1.
+        idx_WMNO_code = Hourly_data_collection[hours+1][15]; //define right WMO_code to pick from tab. | first row of tab is made of title like "time", "unit", "WMO_codes"etc.. So we start from idx[0+1].
         array_length = Object.keys(WMO_json).length; 
         idx = 0;
         //console.log(WMO_json); //if json file is needed.
@@ -128,7 +128,6 @@
                 idx++;
             }
     }
-
 
     async function ft_display_icon(url, icon_current_weather)
     {

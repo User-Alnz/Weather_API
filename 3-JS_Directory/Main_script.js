@@ -9,7 +9,6 @@ import {main_script_handle_icons_and_descriptions_per_hours} from "./Icone_manag
 var     Hourly_data_collection = [];
 var     Daily_data_collection = [];
 
-
 /* daily_weather_data - selection in DOM */
 const   icon_current_weather = document.getElementById("icon_current_weather");
 const   display_sunrise =document.getElementById("daily_sunrise");
@@ -21,24 +20,27 @@ const   display_apparent_temperature_description = document.getElementById("appa
 const   Main_pack_daily_collection = document.getElementsByClassName("Main_pack");
 const   daily_temp_collection = document.getElementsByClassName("daily_temp");
 
-
 /* weekly_weather_data - selection in DOM*/
-
 const   Main_pack_weekly_collection = document.getElementsByClassName("Main_pack_weekly");
 
 
-/*This function call API and store data temporary into tabs */
+    //------------------------------------------------------------
+        /*ft_Call_Meteomatics_API calls API and store data temporary into tabs */
+    //------------------------------------------------------------
+
 ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_collection)
     .then(() => { main() })
     .catch(error=> console.error("main function not run | check ft calling API", error));
 
-
+    //------------------------------------------------------------
+        /* Main function  */
+    //------------------------------------------------------------
 async function main()
 {
   
     try
     {
-        /* this function cross data with WMO_Weather_codes & icones form "Images_source" */
+        /* function cross data with WMO_Weather_codes.json & icones form "Images_source" */
         main_script_handle_icon_and_description_for_the_day(Hourly_data_collection, icon_current_weather, display_apparent_temperature_description);
         main_script_handle_icons_and_descriptions_per_hours(Hourly_data_collection, Main_pack_daily_collection);
         
@@ -48,10 +50,6 @@ async function main()
         //console.log(Daily_data_collection);
         //console.log(Hourly_data_collection);
         
-        /* diplay DOM => Children*/
-        //console.log(daily_temp_collection);
-        //console.log(Main_pack_weekly_collection);
-
         /* daily_weather_data - selection in DOM */
         display_sunrise.innerHTML = ft_get_sunrise(Daily_data_collection);
         display_sunset.innerHTML = ft_get_sunset(Daily_data_collection);
