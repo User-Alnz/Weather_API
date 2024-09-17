@@ -1,22 +1,37 @@
-// https://www.meteomatics.com/en/api/getting-started/
-// https://www.meteomatics.com/en/api/getting-started/
+//API documentation source = https://www.meteomatics.com/en/api/getting-started/
+    //------------------------------------------------------------
+        /* Global Variables  */
+    //------------------------------------------------------------
 
-var     latitude;
-var     longitude;
 let     url_hourly;
 let     url_daily;
 
-//Main fucnction : 1- get geolocation / 2-give others functions urls for calls / 3-functions within calls populate tabs 'Hourly_data_collection, Daily_data_collection' from json file
+    //------------------------------------------------------------
+        /* Main function  */
+
+        /* Here is what do ft_Call_Meteomatics_API
+
+        1- it calls ft_get_Current_Location() which generates url based on geolocation in browser.
+        2- ft_get_hourly_Weather_Data(),ft_get_daily_Weather_Data() 
+        call both API form url given in ft_get_Current_Location() and we get a json for daily or weekly weather data. 
+        3- ft_transform_JSON_to_Table_Daily(), ft_transform_JSON_to_Table_Hourly()
+        transform json into 2d array and return it.
+
+        NB: There is promises and asynchronus function because we need to get sure tab is fully populated before being use in Main_script.js
+        */
+    //------------------------------------------------------------
+
 export function ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_collection)
 {
 
     function ft_get_Current_Location()
     {
+        var     latitude;
+        var     longitude;
         // Return promise when both functions below are done. 
         return new Promise((resolve, reject) => 
         {
             
-       
             // GET current latitude and longitude || Documentation : https://developer.mozilla.org/en-US/docs/Web/API/GeolocationCoordinates
             if (!navigator.geolocation)
             {
