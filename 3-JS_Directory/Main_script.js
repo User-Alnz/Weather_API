@@ -4,7 +4,7 @@
 
 import {Call_Meteomatics_API} from "./Get_API_data.js";
 import {Date_today} from "./handle_dates.js";
-import {ft_get_sunrise, ft_get_sunset, ft_display_weather_for_the_day, ft_temperature_right_now, ft_display_apparent_temperature } from "./daily_weather_data_functions.js";
+import {Get_sunrise, Get_sunset, Display_apparent_temperature, Display_weather_for_the_day, Temperature_right_now} from "./daily_weather_data_functions.js";
 import {ft_handle_Main_pack_weekly} from "./weekly_weather_data_functions.js";
 import {main_script_handle_icon_and_description_for_the_day} from "./Icone_manager_WMO_interpreter_for_the_day.js";
 import {main_script_handle_icons_and_descriptions_per_hours} from "./Icone_manager_WMO_interpreter_for_hours.js";
@@ -57,27 +57,24 @@ async function main()
   
     try
     {
-        /* function cross data with WMO_Weather_codes.json & icones form "Images_source" */
+        /*functions cross data from tab "Hourly_WeatherData_Collection, Daily_WeatherData_collection" and cross it with WMO_Weather_codes.json to display right icon & description*/
         main_script_handle_icon_and_description_for_the_day(Hourly_WeatherData_Collection, icon_current_weather, display_apparent_temperature_description);
         main_script_handle_icons_and_descriptions_per_hours(Hourly_WeatherData_Collection, Daily_WeatherData_collection, Main_pack_daily_collection);
         
-        /* All console log tab and json file returned from API call */
-        /* Tab is below */
-        //console.log(Daily_WeatherData_collection);
-        //console.log(Hourly_WeatherData_Collection);
-        
         /* daily_weather_data - selection in DOM */
-        display_sunrise.innerHTML = ft_get_sunrise(Daily_WeatherData_collection);
-        display_sunset.innerHTML = ft_get_sunset(Daily_WeatherData_collection);
+        display_sunrise.innerHTML = Get_sunrise(Daily_WeatherData_collection);
+        display_sunset.innerHTML = Get_sunset(Daily_WeatherData_collection);
         display_date_today.innerHTML = Date_today();
-        display_apparent_temperature.innerHTML = ft_display_apparent_temperature(Hourly_WeatherData_Collection);
-        display_temp_now.innerHTML = ft_temperature_right_now(Hourly_WeatherData_Collection);
-        ft_display_weather_for_the_day(daily_temp_collection, Hourly_WeatherData_Collection);
+        display_apparent_temperature.innerHTML = Display_apparent_temperature(Hourly_WeatherData_Collection);
+        display_temp_now.innerHTML = Temperature_right_now(Hourly_WeatherData_Collection);
+        Display_weather_for_the_day(daily_temp_collection, Hourly_WeatherData_Collection);
 
         /* weekly_weather_data - selection in DOM*/
         ft_handle_Main_pack_weekly(Main_pack_weekly_collection, Hourly_WeatherData_Collection);
         
-
+        /* Display tab in console if needed ! */
+        //console.log(Daily_WeatherData_collection);
+        //console.log(Hourly_WeatherData_Collection);
     }
     catch (error)
     {
