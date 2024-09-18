@@ -2,7 +2,7 @@
         /*All functions imported */
     //------------------------------------------------------------
 
-import {ft_Call_Meteomatics_API} from "./Get_API_data.js";
+import {Call_Meteomatics_API} from "./Get_API_data.js";
 import {ft_get_date_today} from "./handle_dates.js";
 import {ft_get_sunrise, ft_get_sunset, ft_display_weather_for_the_day, ft_temperature_right_now, ft_display_apparent_temperature } from "./daily_weather_data_functions.js";
 import {ft_handle_Main_pack_weekly} from "./weekly_weather_data_functions.js";
@@ -13,8 +13,8 @@ import {main_script_handle_icons_and_descriptions_per_hours} from "./Icone_manag
         /*Json file from API call is temp store into tab to handle data */
     //------------------------------------------------------------
 
-var     Hourly_data_collection = [];
-var     Daily_data_collection = [];
+var     Hourly_WeatherData_Collection = [];
+var     Daily_WeatherData_collection = [];
 
     //------------------------------------------------------------
         /* daily_weather_data - selection in DOM */
@@ -41,10 +41,10 @@ const   Main_pack_weekly_collection = document.getElementsByClassName("Main_pack
 
 
     //------------------------------------------------------------
-        /*ft_Call_Meteomatics_API calls API and store data temporary into tabs */
+        /*Call_Meteomatics_API calls API and store data temporary into tabs */
     //------------------------------------------------------------
 
-ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_collection)
+    Call_Meteomatics_API(Hourly_WeatherData_Collection, Daily_WeatherData_collection)
     .then(() => { main() })
     .catch(error=> console.error("main function not run | check ft calling API", error));
 
@@ -58,25 +58,24 @@ async function main()
     try
     {
         /* function cross data with WMO_Weather_codes.json & icones form "Images_source" */
-        main_script_handle_icon_and_description_for_the_day(Hourly_data_collection, icon_current_weather, display_apparent_temperature_description);
-        main_script_handle_icons_and_descriptions_per_hours(Hourly_data_collection, Daily_data_collection,Main_pack_daily_collection);
+        main_script_handle_icon_and_description_for_the_day(Hourly_WeatherData_Collection, icon_current_weather, display_apparent_temperature_description);
+        main_script_handle_icons_and_descriptions_per_hours(Hourly_WeatherData_Collection, Daily_WeatherData_collection, Main_pack_daily_collection);
         
-
         /* All console log tab and json file returned from API call */
         /* Tab is below */
-        //console.log(Daily_data_collection);
-        //console.log(Hourly_data_collection);
+        //console.log(Daily_WeatherData_collection);
+        //console.log(Hourly_WeatherData_Collection);
         
         /* daily_weather_data - selection in DOM */
-        display_sunrise.innerHTML = ft_get_sunrise(Daily_data_collection);
-        display_sunset.innerHTML = ft_get_sunset(Daily_data_collection);
+        display_sunrise.innerHTML = ft_get_sunrise(Daily_WeatherData_collection);
+        display_sunset.innerHTML = ft_get_sunset(Daily_WeatherData_collection);
         display_date_today.innerHTML = ft_get_date_today();
-        display_apparent_temperature.innerHTML = ft_display_apparent_temperature(Hourly_data_collection);
-        display_temp_now.innerHTML = ft_temperature_right_now(Hourly_data_collection);
-        ft_display_weather_for_the_day(daily_temp_collection, Hourly_data_collection);
+        display_apparent_temperature.innerHTML = ft_display_apparent_temperature(Hourly_WeatherData_Collection);
+        display_temp_now.innerHTML = ft_temperature_right_now(Hourly_WeatherData_Collection);
+        ft_display_weather_for_the_day(daily_temp_collection, Hourly_WeatherData_Collection);
 
         /* weekly_weather_data - selection in DOM*/
-        ft_handle_Main_pack_weekly(Main_pack_weekly_collection, Hourly_data_collection);
+        ft_handle_Main_pack_weekly(Main_pack_weekly_collection, Hourly_WeatherData_Collection);
         
 
     }
