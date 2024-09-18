@@ -2,11 +2,9 @@
         /* Global Variables  */
     //------------------------------------------------------------
 
-    let     xhr; // XML HTTP Request
     var     path_to_png_directory;
     var     path_to_WMO_Codes;
-    var     WMO_json;
-
+    var     WMO_json; // used later to store json file from retrieve_jsonfile() in main function. 
 
     path_to_png_directory = "/Images_source/PNG_icons_256x256";
     path_to_WMO_Codes = "/WMO_Weather_Codes/WMO_Weather_codes_interpretations.json"; 
@@ -17,14 +15,11 @@
 
     export async function main_script_handle_icon_and_description_for_the_day(Hourly_data_collection, icon_current_weather, display_apparent_temperature_description)
     {
-        ft_retrieve_jsonfile() 
+        retrieve_jsonfile() 
         .then((WMO_json)=>{
-            ft_display_description(Hourly_data_collection, WMO_json, display_apparent_temperature_description);
-            return ft_parse_json_toget_iconURL_for_current_hour(Hourly_data_collection, WMO_json);
-        })
-        .then((url)=> {
-            //console.log(url);//if needed.
-            ft_display_icon(url, icon_current_weather);
+
+            display_description(Hourly_data_collection, WMO_json, display_apparent_temperature_description);
+            display_icon(Hourly_data_collection, WMO_json, icon_current_weather);
         })
         .catch(error=> console.error("error with main_script_handle_icon_and_description_for_the_day ", error));
     }
@@ -34,8 +29,10 @@
     //------------------------------------------------------------
 
     // this function get json file from directory
-    async function ft_retrieve_jsonfile()
+    async function retrieve_jsonfile()
     {
+        var     xhr; // XML HTTP Request
+
         return new Promise((resolve, reject) => 
         {    
             xhr = new XMLHttpRequest();
@@ -66,8 +63,8 @@
         })
     }
 
-    //this function cross WMO_code json with tab to find right image and return url in order to access it.
-    async  function ft_parse_json_toget_iconURL_for_current_hour(Hourly_data_collection, WMO_json)
+    
+    async  function display_icon(Hourly_data_collection, WMO_json, icon_current_weather)
     {
         
         var     obj_day;
@@ -82,26 +79,21 @@
         idx_WMNO_code = Hourly_data_collection[hours+1][15]; //define right WMO_code to pick from tab. | first row of tab is made of title like "time", "unit", "WMO_codes"etc.. So we start from idx[0+1].
         array_length = Object.keys(WMO_json).length; 
         idx = 0;
-        //console.log(WMO_json); //if json file is needed.
-
-        return new Promise((resolve, reject) => {
-
+      
             while (idx < array_length)
             {
                 if(idx_WMNO_code == Object.keys(WMO_json)[idx]) // if WMO Code from tab is same than idx key parsed in json.
                 {
                     url = path_to_png_directory + '/' + WMO_json[idx].day.icon;
+                    icon_current_weather.src =  url;
                     
-                    resolve(url);
+                    return(icon_current_weather.src);
                 }
             idx++;
             }
-            
-            reject(error);
-        })
     }
 
-    async function ft_display_description(Hourly_data_collection, WMO_json, display_apparent_temperature_description)
+    async function display_description(Hourly_data_collection, WMO_json, display_apparent_temperature_description)
     {   
         var     obj_day;
         var     idx_WMNO_code;
@@ -128,9 +120,3 @@
                 idx++;
             }
     }
-
-    async function ft_display_icon(url, icon_current_weather)
-    {
-        icon_current_weather.src =  url;
-        return(icon_current_weather.src);
-    } 
