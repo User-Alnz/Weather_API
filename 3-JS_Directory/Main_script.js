@@ -1,3 +1,7 @@
+    //------------------------------------------------------------
+        /*All functions imported */
+    //------------------------------------------------------------
+
 import {ft_Call_Meteomatics_API} from "./Get_API_data.js";
 import {ft_get_date_today} from "./handle_dates.js";
 import {ft_get_sunrise, ft_get_sunset, ft_display_weather_for_the_day, ft_temperature_right_now, ft_display_apparent_temperature } from "./daily_weather_data_functions.js";
@@ -5,11 +9,19 @@ import {ft_handle_Main_pack_weekly} from "./weekly_weather_data_functions.js";
 import {main_script_handle_icon_and_description_for_the_day} from "./Icone_manager_WMO_interpreter_for_the_day.js";
 import {main_script_handle_icons_and_descriptions_per_hours} from "./Icone_manager_WMO_interpreter_for_hours.js";
 
-// Json result from API call is temp store into tab to handle data
+    //------------------------------------------------------------
+        /*Json file from API call is temp store into tab to handle data */
+    //------------------------------------------------------------
+
 var     Hourly_data_collection = [];
 var     Daily_data_collection = [];
 
-/* daily_weather_data - selection in DOM */
+    //------------------------------------------------------------
+        /* daily_weather_data - selection in DOM */
+        
+        // all used in main ()
+    //------------------------------------------------------------
+
 const   icon_current_weather = document.getElementById("icon_current_weather");
 const   display_sunrise =document.getElementById("daily_sunrise");
 const   display_sunset = document.getElementById("daily_sunset");
@@ -20,7 +32,11 @@ const   display_apparent_temperature_description = document.getElementById("appa
 const   Main_pack_daily_collection = document.getElementsByClassName("Main_pack");
 const   daily_temp_collection = document.getElementsByClassName("daily_temp");
 
-/* weekly_weather_data - selection in DOM*/
+    //------------------------------------------------------------
+        /* weekly_weather_data - selection in DOM*/
+
+        //used in main ()
+    //------------------------------------------------------------
 const   Main_pack_weekly_collection = document.getElementsByClassName("Main_pack_weekly");
 
 
@@ -32,6 +48,7 @@ ft_Call_Meteomatics_API(Hourly_data_collection, Daily_data_collection)
     .then(() => { main() })
     .catch(error=> console.error("main function not run | check ft calling API", error));
 
+
     //------------------------------------------------------------
         /* Main function  */
     //------------------------------------------------------------
@@ -42,7 +59,7 @@ async function main()
     {
         /* function cross data with WMO_Weather_codes.json & icones form "Images_source" */
         main_script_handle_icon_and_description_for_the_day(Hourly_data_collection, icon_current_weather, display_apparent_temperature_description);
-        main_script_handle_icons_and_descriptions_per_hours(Hourly_data_collection, Main_pack_daily_collection);
+        main_script_handle_icons_and_descriptions_per_hours(Hourly_data_collection, Daily_data_collection,Main_pack_daily_collection);
         
 
         /* All console log tab and json file returned from API call */
@@ -69,4 +86,3 @@ async function main()
     } 
     
 }
-

@@ -1,3 +1,5 @@
+    import {is_night_per_hours} from "./Define_if_is_Night_or_Day.js"; 
+
     //------------------------------------------------------------
         /* Global Variables  */
     //------------------------------------------------------------
@@ -15,19 +17,19 @@
         /* Main function  */
     //------------------------------------------------------------
 
-export function main_script_handle_icons_and_descriptions_per_hours(Hourly_data_collection, Main_pack_daily_collection) //Main_pack_daily_collection is a <div> form DOM
+export function main_script_handle_icons_and_descriptions_per_hours(Hourly_data_collection, Daily_data_collection, Main_pack_daily_collection) //Main_pack_daily_collection is a <div> form DOM
 {
     ft_retrieve_jsonfile()
     .then((WMO_json)=> {
 
-        ft_display_icons(Hourly_data_collection, Main_pack_daily_collection, WMO_json)
+        ft_display_icons(Hourly_data_collection, Daily_data_collection, Main_pack_daily_collection, WMO_json)
 
     })
     .catch(error=> console.error("main_script_handle_icons_and_descriptions_per_hours", error));
 }
 
     //------------------------------------------------------------
-        /*Below all functions main_script_handle_icons_and_descriptions_per_hours */
+       /*Below all functions called in main_script_handle_icons_and_descriptions_per_hours */
     //------------------------------------------------------------
 
 async function ft_retrieve_jsonfile()
@@ -62,7 +64,7 @@ async function ft_retrieve_jsonfile()
         })
     }
 
-function ft_display_icons(Hourly_data_collection, Main_pack_daily_collection, WMO_json)
+function ft_display_icons(Hourly_data_collection, Daily_data_collection, Main_pack_daily_collection, WMO_json)
 {
     //Main_pack_daily_collection is a div element repetead 4 times. An containing each time, 2 times <img class = 'daily_icons'> childrens per Main_pack_daily_collection <div>
     var     idx;
@@ -76,9 +78,9 @@ function ft_display_icons(Hourly_data_collection, Main_pack_daily_collection, WM
 
     while(idx < Array_length ) // I only parse Main_pack_daily_collection childrens to acces <img> and apply function ft_provide_iconURL_for_each_3hours to provide it an url.
     {
-        Main_pack_daily_collection[idx].getElementsByClassName('daily_icons')[0].src = ft_provide_iconURL_for_each_3hours(WMO_json, Hourly_data_collection, each_3hours_in_tab);
+        Main_pack_daily_collection[idx].getElementsByClassName('daily_icons')[0].src = ft_provide_iconURL_for_each_3hours(WMO_json, Hourly_data_collection, Daily_data_collection, each_3hours_in_tab);
         each_3hours_in_tab += 3; // offset selection in tab to next 3 hours. like from 3 AM to 6 AM.
-        Main_pack_daily_collection[idx].getElementsByClassName('daily_icons')[1].src = ft_provide_iconURL_for_each_3hours(WMO_json, Hourly_data_collection, each_3hours_in_tab);
+        Main_pack_daily_collection[idx].getElementsByClassName('daily_icons')[1].src = ft_provide_iconURL_for_each_3hours(WMO_json, Hourly_data_collection, Daily_data_collection, each_3hours_in_tab);
         each_3hours_in_tab += 3;
 
       idx++;
@@ -86,7 +88,7 @@ function ft_display_icons(Hourly_data_collection, Main_pack_daily_collection, WM
     
 }
 
-function ft_provide_iconURL_for_each_3hours(WMO_json, Hourly_data_collection, each_3hours_in_tab) 
+function ft_provide_iconURL_for_each_3hours(WMO_json, Hourly_data_collection, Daily_data_collection, each_3hours_in_tab) 
 {   
     
     var     idx_WMNO_code;
@@ -103,11 +105,18 @@ function ft_provide_iconURL_for_each_3hours(WMO_json, Hourly_data_collection, ea
     while(idx < json_length)
     {
         if(idx_WMNO_code == Object.keys(WMO_json)[idx])
-        {
-                    icon = path_to_png_directory + '/' + WMO_json[idx].day.icon;
+        {           
+            if(is_night_per_hours(each_3hours_in_tab, Daily_data_collection)) // if true. NB: is_night_per_hours() is a boolean function
+            {
+                icon = path_to_png_directory + '/' + WMO_json[idx].night.icon;
                     return(icon);
+            }
+            else
+            {
+                icon = path_to_png_directory + '/' + WMO_json[idx].day.icon;
+                    return(icon);
+            }
         }
-
         idx++;
     }
     
