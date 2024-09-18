@@ -5,7 +5,7 @@
 import {Call_Meteomatics_API} from "./Get_API_data.js";
 import {Date_today} from "./handle_dates.js";
 import {Get_sunrise, Get_sunset, Display_apparent_temperature, Display_weather_for_the_day, Temperature_right_now} from "./daily_weather_data_functions.js";
-import {ft_handle_Main_pack_weekly} from "./weekly_weather_data_functions.js";
+import {main_script_handle_dates_and_temperatures_for_week} from "./weekly_weather_data_functions.js";
 import {main_script_handle_icon_and_description_for_the_day} from "./Icone_manager_WMO_interpreter_for_the_day.js";
 import {main_script_handle_icons_and_descriptions_per_hours} from "./Icone_manager_WMO_interpreter_for_hours.js";
 
@@ -70,7 +70,7 @@ async function main()
         Display_weather_for_the_day(daily_temp_collection, Hourly_WeatherData_Collection);
 
         /* weekly_weather_data - selection in DOM*/
-        ft_handle_Main_pack_weekly(Main_pack_weekly_collection, Hourly_WeatherData_Collection);
+        main_script_handle_dates_and_temperatures_for_week(Main_pack_weekly_collection, Hourly_WeatherData_Collection);
         
         /* Display tab in console if needed ! */
         //console.log(Daily_WeatherData_collection);

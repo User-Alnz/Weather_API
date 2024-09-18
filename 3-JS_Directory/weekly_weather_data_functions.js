@@ -2,7 +2,7 @@
         /* Main function  */
     //------------------------------------------------------------
 
-export function ft_handle_Main_pack_weekly(Main_pack_weekly_collection, Hourly_data_collection)
+export function main_script_handle_dates_and_temperatures_for_week(Main_pack_weekly_collection, Hourly_WeatherData_Collection)
 {   
     var     idx;
     var     nb_days_in_week;
@@ -21,8 +21,8 @@ export function ft_handle_Main_pack_weekly(Main_pack_weekly_collection, Hourly_d
         Main_pack_weekly_collection[idx].getElementsByClassName('day')[0].innerHTML = display_day(idx);
         Main_pack_weekly_collection[idx].getElementsByClassName('day_date')[0].innerHTML = display_date(idx);
 
-        Main_pack_weekly_collection[idx].getElementsByClassName('max_temp')[0].innerHTML = `max <strong> +${find_max_value(hourly_array_start, hourly_array_stop, Hourly_data_collection)}°</strong> `;
-        Main_pack_weekly_collection[idx].getElementsByClassName('min_temp')[0].innerHTML = `min <strong> +${find_min_value(hourly_array_start, hourly_array_stop, Hourly_data_collection)}°</strong> `;
+        Main_pack_weekly_collection[idx].getElementsByClassName('max_temp')[0].innerHTML = `max <strong> +${find_max_value(hourly_array_start, hourly_array_stop, Hourly_WeatherData_Collection)}°</strong> `;
+        Main_pack_weekly_collection[idx].getElementsByClassName('min_temp')[0].innerHTML = `min <strong> +${find_min_value(hourly_array_start, hourly_array_stop, Hourly_WeatherData_Collection)}°</strong> `;
         hourly_array_start += offset_array_to_nxt_24h;
         hourly_array_stop += offset_array_to_nxt_24h;
         idx++;
@@ -66,18 +66,18 @@ export function ft_handle_Main_pack_weekly(Main_pack_weekly_collection, Hourly_d
         return(str);
     }
 
-    function    find_max_value(hourly_array_start, hourly_array_stop, Hourly_data_collection)
+    function    find_max_value(hourly_array_start, hourly_array_stop, Hourly_WeatherData_Collection)
     {   
         var     idx;
         var     max;
         var     int_value_pointed_in_tab;
 
         idx = hourly_array_start; 
-        max = parseFloat(Hourly_data_collection[idx][1]); //initiate max to float numb for a comparaison below in the loop. Otherwise, it wouldn't work due to 'undefined' value. 
+        max = parseFloat(Hourly_WeatherData_Collection[idx][1]); //initiate max to float numb for a comparaison below in the loop. Otherwise, it wouldn't work due to 'undefined' value. 
         
         while(idx++ < hourly_array_stop)
         {   
-            int_value_pointed_in_tab = parseFloat(Hourly_data_collection[idx][1]); //transf str to float numb
+            int_value_pointed_in_tab = parseFloat(Hourly_WeatherData_Collection[idx][1]); //transf str to float numb
             if (max < int_value_pointed_in_tab)
                 max = int_value_pointed_in_tab;
         }
@@ -85,18 +85,18 @@ export function ft_handle_Main_pack_weekly(Main_pack_weekly_collection, Hourly_d
         return(max);
     }
 
-    function    find_min_value(hourly_array_start, hourly_array_stop, Hourly_data_collection)
+    function    find_min_value(hourly_array_start, hourly_array_stop, Hourly_WeatherData_Collection)
     {
         var     idx;
         var     min;
         var     int_value_pointed_in_tab;
 
         idx = hourly_array_start;
-        min = parseFloat(Hourly_data_collection[idx][1]);
+        min = parseFloat(Hourly_WeatherData_Collection[idx][1]);
         
         while(idx++ < hourly_array_stop)
         {
-            int_value_pointed_in_tab = parseFloat(Hourly_data_collection[idx][1]);
+            int_value_pointed_in_tab = parseFloat(Hourly_WeatherData_Collection[idx][1]);
 
             if(min > int_value_pointed_in_tab)
                 min = int_value_pointed_in_tab;
