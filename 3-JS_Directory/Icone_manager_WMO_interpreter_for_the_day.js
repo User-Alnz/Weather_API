@@ -13,22 +13,21 @@
         /* Main function  */
     //------------------------------------------------------------
 
-    export async function main_script_handle_icon_and_description_for_the_day(Hourly_data_collection, icon_current_weather, display_apparent_temperature_description)
+    export async function main_script_handle_icon_and_description_for_the_day(Hourly_WeatherData_Collection, icon_current_weather, display_apparent_temperature_description)
     {
         retrieve_jsonfile() 
         .then((WMO_json)=>{
 
-            display_description(Hourly_data_collection, WMO_json, display_apparent_temperature_description);
-            display_icon(Hourly_data_collection, WMO_json, icon_current_weather);
+            display_description(Hourly_WeatherData_Collection, WMO_json, display_apparent_temperature_description);
+            display_icon(Hourly_WeatherData_Collection, WMO_json, icon_current_weather);
         })
         .catch(error=> console.error("error with main_script_handle_icon_and_description_for_the_day ", error));
     }
 
     //------------------------------------------------------------
-        /*Below all functions called in main_script_handle_icons_for_the_day */
+        /* functions called in main_script_handle_icon_and_description_for_the_day() */
     //------------------------------------------------------------
 
-    // this function get json file from directory
     async function retrieve_jsonfile()
     {
         var     xhr; // XML HTTP Request
@@ -64,7 +63,7 @@
     }
 
     
-    async  function display_icon(Hourly_data_collection, WMO_json, icon_current_weather)
+    async  function display_icon(Hourly_WeatherData_Collection, WMO_json, icon_current_weather)
     {
         
         var     obj_day;
@@ -76,7 +75,7 @@
         obj_day = new Date();
         const hours = obj_day.getHours(); //Define current hour now to define where to find WMO code from the row pointing the time it's now.
 
-        idx_WMNO_code = Hourly_data_collection[hours+1][15]; //define right WMO_code to pick from tab. | first row of tab is made of title like "time", "unit", "WMO_codes"etc.. So we start from idx[0+1].
+        idx_WMNO_code = Hourly_WeatherData_Collection[hours+1][15]; //define right WMO_code to pick from tab. | first row of tab is made of title like "time", "unit", "WMO_codes"etc.. So we start from idx[0+1].
         array_length = Object.keys(WMO_json).length; 
         idx = 0;
       
@@ -93,7 +92,7 @@
             }
     }
 
-    async function display_description(Hourly_data_collection, WMO_json, display_apparent_temperature_description)
+    async function display_description(Hourly_WeatherData_Collection, WMO_json, display_apparent_temperature_description)
     {   
         var     obj_day;
         var     idx_WMNO_code;
@@ -104,7 +103,7 @@
         obj_day = new Date();
         const hours = obj_day.getHours(); 
 
-        idx_WMNO_code = Hourly_data_collection[hours+1][15]; 
+        idx_WMNO_code = Hourly_WeatherData_Collection[hours+1][15]; 
         array_length = Object.keys(WMO_json).length; 
         idx = 0;
 
