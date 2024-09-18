@@ -3,7 +3,7 @@
     //------------------------------------------------------------
 
 import {Call_Meteomatics_API} from "./Get_API_data.js";
-import {ft_get_date_today} from "./handle_dates.js";
+import {Date_today} from "./handle_dates.js";
 import {ft_get_sunrise, ft_get_sunset, ft_display_weather_for_the_day, ft_temperature_right_now, ft_display_apparent_temperature } from "./daily_weather_data_functions.js";
 import {ft_handle_Main_pack_weekly} from "./weekly_weather_data_functions.js";
 import {main_script_handle_icon_and_description_for_the_day} from "./Icone_manager_WMO_interpreter_for_the_day.js";
@@ -69,7 +69,7 @@ async function main()
         /* daily_weather_data - selection in DOM */
         display_sunrise.innerHTML = ft_get_sunrise(Daily_WeatherData_collection);
         display_sunset.innerHTML = ft_get_sunset(Daily_WeatherData_collection);
-        display_date_today.innerHTML = ft_get_date_today();
+        display_date_today.innerHTML = Date_today();
         display_apparent_temperature.innerHTML = ft_display_apparent_temperature(Hourly_WeatherData_Collection);
         display_temp_now.innerHTML = ft_temperature_right_now(Hourly_WeatherData_Collection);
         ft_display_weather_for_the_day(daily_temp_collection, Hourly_WeatherData_Collection);
