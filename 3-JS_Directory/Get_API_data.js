@@ -69,6 +69,7 @@ export function Call_Meteomatics_API(Hourly_WeatherData_Collection, Daily_Weathe
 
         .then((data_daily) =>
         {
+            console.log(data_daily);
             Transform_JSON_to_Table_Daily(data_daily, Daily_WeatherData_collection);
            
         })
@@ -116,7 +117,7 @@ function Transform_JSON_to_Table_Daily(data_daily, Daily_WeatherData_collection)
     idx_row = 0 ;
     idx_jsonFile = 0;
 
-    Daily_WeatherData_collection[idx_row] = ['time', 'unit', 'sunrise', 'unit',  'sunset', 'unit', 'precipitation sum', 'unit', 'shower_sum', 'unit', 'snowfall_sum', 'unit', 'wind direction', 'unit', 'wind guts', 'unit', 'wind speed', 'unit'];
+    Daily_WeatherData_collection[idx_row] = ['time', 'unit', 'sunrise', 'unit',  'sunset', 'unit', 'precipitation sum', 'unit', 'shower_sum', 'unit', 'snowfall_sum', 'unit', 'wind direction', 'unit', 'wind guts', 'unit', 'wind speed', 'unit', 'WMO_codes'];
 
     while(idx_jsonFile < data_daily.daily.time.length)
     {
@@ -152,6 +153,7 @@ function Transform_JSON_to_Table_Daily(data_daily, Daily_WeatherData_collection)
         Daily_WeatherData_collection[idx_row].push(data_daily.daily.wind_speed_10m_max[idx_jsonFile]);
         Daily_WeatherData_collection[idx_row].push(data_daily.daily_units.wind_speed_10m_max);
 
+        Daily_WeatherData_collection[idx_row].push(data_daily.daily.weather_code[idx_jsonFile]);
         idx_jsonFile++;
         
     }
