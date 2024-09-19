@@ -78,9 +78,9 @@ function display_icons(Hourly_WeatherData_Collection, Daily_WeatherData_collecti
     
     while(idx < Array_length ) // I only parse Main_pack_daily_collection childrens to acces <img> and apply function provide_iconURL_for_each_3hours to provide it an url.
     {
-        Main_pack_daily_collection[idx].getElementsByClassName('daily_icons')[0].src = provide_iconURL_for_each_3hours(WMO_json, Hourly_WeatherData_Collection, Daily_WeatherData_collection, each_3hours_in_tab);
+        Main_pack_daily_collection[idx].getElementsByClassName('daily_icons')[0].src = provide_iconURL_for_each_3hours(Hourly_WeatherData_Collection, Daily_WeatherData_collection, each_3hours_in_tab, WMO_json,);
         each_3hours_in_tab += 3; // offset selection in tab to next 3 hours. like from 3 AM to 6 AM.
-        Main_pack_daily_collection[idx].getElementsByClassName('daily_icons')[1].src = provide_iconURL_for_each_3hours(WMO_json, Hourly_WeatherData_Collection, Daily_WeatherData_collection, each_3hours_in_tab);
+        Main_pack_daily_collection[idx].getElementsByClassName('daily_icons')[1].src = provide_iconURL_for_each_3hours(Hourly_WeatherData_Collection, Daily_WeatherData_collection, each_3hours_in_tab, WMO_json,);
         each_3hours_in_tab += 3;
 
       idx++;
@@ -97,7 +97,7 @@ function provide_iconURL_for_each_3hours(Hourly_WeatherData_Collection, Daily_We
 
     json_length = Object.keys(WMO_json).length;
     idx = 0;
-
+    console.log(each_3hours_in_tab);
     idx_WMNO_code = Hourly_WeatherData_Collection[each_3hours_in_tab][15]; 
    
     while(idx < json_length)
