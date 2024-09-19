@@ -16,12 +16,12 @@
         /* Main function  */
     //------------------------------------------------------------
 
-export function main_script_handle_icons_and_descriptions_per_hours(Hourly_data_collection, Daily_data_collection, Main_pack_daily_collection) //Main_pack_daily_collection is a <div> form DOM
+export function main_script_handle_icons_and_descriptions_per_hours(Hourly_WeatherData_Collection, Daily_WeatherData_collection, Main_pack_daily_collection) //Main_pack_daily_collection is a <div> form DOM
 {
     retrieve_jsonfile()
     .then((WMO_json)=> {
 
-        display_icons(Hourly_data_collection, Daily_data_collection, Main_pack_daily_collection, WMO_json)
+        display_icons(Hourly_WeatherData_Collection, Daily_WeatherData_collection, Main_pack_daily_collection, WMO_json)
 
     })
     .catch(error=> console.error("main_script_handle_icons_and_descriptions_per_hours", error));
@@ -65,7 +65,7 @@ async function retrieve_jsonfile()
         })
     }
 
-function display_icons(Hourly_data_collection, Daily_data_collection, Main_pack_daily_collection, WMO_json)
+function display_icons(Hourly_WeatherData_Collection, Daily_WeatherData_collection, Main_pack_daily_collection, WMO_json)
 {
     //Main_pack_daily_collection is a div element repetead 4 times. An containing each time, 2 times <img class = 'daily_icons'> childrens per Main_pack_daily_collection <div>
     var     idx;
@@ -78,16 +78,16 @@ function display_icons(Hourly_data_collection, Daily_data_collection, Main_pack_
     
     while(idx < Array_length ) // I only parse Main_pack_daily_collection childrens to acces <img> and apply function provide_iconURL_for_each_3hours to provide it an url.
     {
-        Main_pack_daily_collection[idx].getElementsByClassName('daily_icons')[0].src = provide_iconURL_for_each_3hours(WMO_json, Hourly_data_collection, Daily_data_collection, each_3hours_in_tab);
+        Main_pack_daily_collection[idx].getElementsByClassName('daily_icons')[0].src = provide_iconURL_for_each_3hours(WMO_json, Hourly_WeatherData_Collection, Daily_WeatherData_collection, each_3hours_in_tab);
         each_3hours_in_tab += 3; // offset selection in tab to next 3 hours. like from 3 AM to 6 AM.
-        Main_pack_daily_collection[idx].getElementsByClassName('daily_icons')[1].src = provide_iconURL_for_each_3hours(WMO_json, Hourly_data_collection, Daily_data_collection, each_3hours_in_tab);
+        Main_pack_daily_collection[idx].getElementsByClassName('daily_icons')[1].src = provide_iconURL_for_each_3hours(WMO_json, Hourly_WeatherData_Collection, Daily_WeatherData_collection, each_3hours_in_tab);
         each_3hours_in_tab += 3;
 
       idx++;
     }
 }
 
-function provide_iconURL_for_each_3hours(WMO_json, Hourly_data_collection, Daily_data_collection, each_3hours_in_tab) 
+function provide_iconURL_for_each_3hours(Hourly_WeatherData_Collection, Daily_WeatherData_collection, each_3hours_in_tab, WMO_json) 
 {   
     
     var     idx_WMNO_code;
@@ -98,13 +98,13 @@ function provide_iconURL_for_each_3hours(WMO_json, Hourly_data_collection, Daily
     json_length = Object.keys(WMO_json).length;
     idx = 0;
 
-    idx_WMNO_code = Hourly_data_collection[each_3hours_in_tab][15]; 
+    idx_WMNO_code = Hourly_WeatherData_Collection[each_3hours_in_tab][15]; 
    
     while(idx < json_length)
     {
         if(idx_WMNO_code == Object.keys(WMO_json)[idx])
         {           
-            if(is_night_per_hours(each_3hours_in_tab, Daily_data_collection)) // if true. NB: is_night_per_hours() is a boolean function
+            if(is_night_per_hours(each_3hours_in_tab, Daily_WeatherData_collection)) // if true. NB: is_night_per_hours() is a boolean function
             {
                 icon = path_to_png_directory + '/' + WMO_json[idx].night.icon;
                     return(icon);
