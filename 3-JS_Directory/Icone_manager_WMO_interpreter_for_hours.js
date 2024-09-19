@@ -68,14 +68,15 @@ async function retrieve_jsonfile()
 function display_icons(Hourly_WeatherData_Collection, Daily_WeatherData_collection, Main_pack_daily_collection, WMO_json)
 {
     //Main_pack_daily_collection is a div element repetead 4 times. An containing each time, 2 times <img class = 'daily_icons'> childrens per Main_pack_daily_collection <div>
-    var     idx;
+    
     var     each_3hours_in_tab;
     var     Array_length;
+    var     idx;
 
-    idx = 0;
-    Array_length = Main_pack_daily_collection.length;
     each_3hours_in_tab = 1; // /!\ especially start 1 cause we need first WMO_code in a the tab. Just below title row 1. So value for 00:00 AM is at idx 1 not 0 /!\
-    
+    Array_length = Main_pack_daily_collection.length;
+    idx = 0;
+
     while(idx < Array_length ) // I only parse Main_pack_daily_collection childrens to acces <img> and apply function provide_iconURL_for_each_3hours to provide it an url.
     {
         Main_pack_daily_collection[idx].getElementsByClassName('daily_icons')[0].src = provide_iconURL_for_each_3hours(Hourly_WeatherData_Collection, Daily_WeatherData_collection, each_3hours_in_tab, WMO_json,);
@@ -95,10 +96,10 @@ function provide_iconURL_for_each_3hours(Hourly_WeatherData_Collection, Daily_We
     var     idx;
     var     icon;
 
+    idx_WMNO_code = Hourly_WeatherData_Collection[each_3hours_in_tab][15]; 
     json_length = Object.keys(WMO_json).length;
     idx = 0;
-    console.log(each_3hours_in_tab);
-    idx_WMNO_code = Hourly_WeatherData_Collection[each_3hours_in_tab][15]; 
+    
    
     while(idx < json_length)
     {
