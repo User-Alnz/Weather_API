@@ -69,9 +69,7 @@ export function Call_Meteomatics_API(Hourly_WeatherData_Collection, Daily_Weathe
 
         .then((data_daily) =>
         {
-            console.log(data_daily);
             Transform_JSON_to_Table_Daily(data_daily, Daily_WeatherData_collection);
-           
         })
 
         .catch(error=>console.log(error));
