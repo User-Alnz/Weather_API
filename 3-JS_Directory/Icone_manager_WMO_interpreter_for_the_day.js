@@ -1,3 +1,4 @@
+    import {is_night_now} from "./Define_if_is_Night_or_Day.js";
     //------------------------------------------------------------
         /* Global Variables  */
     //------------------------------------------------------------
@@ -13,13 +14,13 @@
         /* Main function  */
     //------------------------------------------------------------
 
-    export async function main_script_handle_icon_and_description_for_the_day(Hourly_WeatherData_Collection, icon_current_weather, display_apparent_temperature_description)
+    export async function main_script_handle_icon_and_description_for_the_day(Hourly_WeatherData_Collection, Daily_data_collection, icon_current_weather, display_apparent_temperature_description)
     {
         retrieve_jsonfile() 
         .then((WMO_json)=>{
 
-            display_description(Hourly_WeatherData_Collection, WMO_json, display_apparent_temperature_description);
-            display_icon(Hourly_WeatherData_Collection, WMO_json, icon_current_weather);
+            display_description(Hourly_WeatherData_Collection, Daily_data_collection, WMO_json, display_apparent_temperature_description);
+            display_icon(Hourly_WeatherData_Collection, Daily_data_collection, WMO_json, icon_current_weather);
         })
         .catch(error=> console.error("error with main_script_handle_icon_and_description_for_the_day ", error));
     }
@@ -63,7 +64,7 @@
     }
 
     
-    async  function display_icon(Hourly_WeatherData_Collection, WMO_json, icon_current_weather)
+    async  function display_icon(Hourly_WeatherData_Collection, Daily_data_collection, WMO_json, icon_current_weather)
     {
         
         var     obj_day;
@@ -83,16 +84,24 @@
             {
                 if(idx_WMNO_code == Object.keys(WMO_json)[idx]) // if WMO Code from tab is in WMO json
                 {
-                    url = path_to_png_directory + '/' + WMO_json[idx_WMNO_code].day.icon;
-                    icon_current_weather.src =  url;
-                    
-                    return(icon_current_weather.src);
+                    if(is_night_now(Daily_data_collection))
+                    {
+                        url = path_to_png_directory + '/' + WMO_json[idx_WMNO_code].night.icon;
+                        icon_current_weather.src =  url;
+                            return(icon_current_weather.src);
+                    }
+                    else
+                    {
+                        url = path_to_png_directory + '/' + WMO_json[idx_WMNO_code].day.icon;
+                        icon_current_weather.src =  url;
+                            return(icon_current_weather.src);
+                    }
                 }
             idx++;
             }
     }
 
-    async function display_description(Hourly_WeatherData_Collection, WMO_json, display_apparent_temperature_description)
+    async function display_description(Hourly_WeatherData_Collection, Daily_data_collection, WMO_json, display_apparent_temperature_description)
     {   
         var     obj_day;
         var     idx_WMNO_code;
@@ -110,11 +119,19 @@
             while  (idx < array_length)
             {
                 if(idx_WMNO_code == Object.keys(WMO_json)[idx])
-                {
-                    description = WMO_json[idx_WMNO_code].day.description;
-                    display_apparent_temperature_description.innerHTML = description;
-
-                    return(display_apparent_temperature_description);
+                {   
+                    if(is_night_now(Daily_data_collection))
+                    {
+                        description = WMO_json[idx_WMNO_code].night.description;
+                        display_apparent_temperature_description.innerHTML = description;
+                            return(display_apparent_temperature_description);
+                    }
+                    else
+                    {
+                        description = WMO_json[idx_WMNO_code].day.description;
+                        display_apparent_temperature_description.innerHTML = description;
+                            return(display_apparent_temperature_description);
+                    }
                 }
                 idx++;
             }

@@ -1,3 +1,4 @@
+    console.log("This project is made from scratch and for educational purpose\n\nTech used: HTML/CSS/JS. the app is fully responsive and will adapt all screen type & size even landscape orientation on phone ;)\n\nVisit my https://github.com/User-Alnz");
     //------------------------------------------------------------
         /*All functions imported */
     //------------------------------------------------------------
@@ -59,7 +60,7 @@ async function main()
     try
     {
         /*functions cross data from tab "Hourly_WeatherData_Collection, Daily_WeatherData_collection" and cross it with WMO_Weather_codes.json to display right icon & description*/
-        main_script_handle_icon_and_description_for_the_day(Hourly_WeatherData_Collection, icon_current_weather, display_apparent_temperature_description);
+        main_script_handle_icon_and_description_for_the_day(Hourly_WeatherData_Collection, Daily_WeatherData_collection,  icon_current_weather, display_apparent_temperature_description);
         main_script_handle_icons_and_descriptions_per_hours(Hourly_WeatherData_Collection, Daily_WeatherData_collection, Main_pack_daily_collection);
         
         /* daily_weather_data - selection in DOM */

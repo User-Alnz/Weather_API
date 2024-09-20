@@ -22,3 +22,25 @@
                     else 
                         return (false);
     }
+
+    export function is_night_now(Daily_data_collection)
+    {   
+        var     obj_day;
+        var     sunrise;
+        var     sunset;
+
+        obj_day = new Date();
+        sunrise = parseInt(Daily_data_collection[1][2].slice(11, 13)) //slice string to get only hours and convert into int. 
+        sunset = parseInt(Daily_data_collection[1][4].slice(11, 13))
+
+        const hour_now = obj_day.getHours();
+
+        if (sunrise > hour_now)
+            return (true);
+
+            else if (sunset < hour_now)
+                return (true);
+
+                    else 
+                        return (false);
+    }
