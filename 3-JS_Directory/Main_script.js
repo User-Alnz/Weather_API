@@ -8,6 +8,7 @@ import {Get_sunrise, Get_sunset, Display_apparent_temperature, Display_weather_f
 import {main_script_handle_dates_and_temperatures_for_week} from "./weekly_weather_data_functions.js";
 import {main_script_handle_icon_and_description_for_the_day} from "./Icone_manager_WMO_interpreter_for_the_day.js";
 import {main_script_handle_icons_and_descriptions_per_hours} from "./Icone_manager_WMO_interpreter_for_hours.js";
+import {main_script_handle_icons_and_descriptions_for_the_week}from "./Icone_manager_WMO_interpreter_for_the_week.js"
 
     //------------------------------------------------------------
         /*Json file from API call is temp store into tab to handle data */
@@ -71,7 +72,7 @@ async function main()
 
         /* weekly_weather_data - selection in DOM*/
         main_script_handle_dates_and_temperatures_for_week(Main_pack_weekly_collection, Hourly_WeatherData_Collection);
-        
+        main_script_handle_icons_and_descriptions_for_the_week(Daily_WeatherData_collection, Main_pack_weekly_collection);
         /* Display tab in console if needed ! */
         //console.log(Daily_WeatherData_collection);
         //console.log(Hourly_WeatherData_Collection);

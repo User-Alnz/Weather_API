@@ -391,6 +391,14 @@
 				"description":"Thunderstorm with heavy hail. So really attention to your head ! Could worth to wait it's done before mooving. You'd better stay home.",
 				"icon" : "nt_tstorms.png"
 			}
-	}
+	},
 
+	"404":{
+
+		"error":{
+			"error_description":"Contact Admin Webapp. Impossible to get data from API.",
+			"error_icon" : "unknown.png"
+		}
+
+	}
 }
