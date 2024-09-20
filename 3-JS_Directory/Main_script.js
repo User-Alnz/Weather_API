@@ -71,7 +71,7 @@ async function main()
         Display_weather_for_the_day(daily_temp_collection, Hourly_WeatherData_Collection);
 
         /* weekly_weather_data - selection in DOM*/
-        main_script_handle_dates_and_temperatures_for_week(Main_pack_weekly_collection, Hourly_WeatherData_Collection);
+        main_script_handle_dates_and_temperatures_for_week(Hourly_WeatherData_Collection, Main_pack_weekly_collection);
         main_script_handle_icons_and_descriptions_for_the_week(Daily_WeatherData_collection, Main_pack_weekly_collection);
         /* Display tab in console if needed ! */
         //console.log(Daily_WeatherData_collection);

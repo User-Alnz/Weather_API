@@ -2,7 +2,7 @@
         /* Main function  */
     //------------------------------------------------------------
 
-export function main_script_handle_dates_and_temperatures_for_week(Main_pack_weekly_collection, Hourly_WeatherData_Collection)
+export function main_script_handle_dates_and_temperatures_for_week(Hourly_WeatherData_Collection, Main_pack_weekly_collection)
 {   
     var     idx;
     var     nb_days_in_week;
