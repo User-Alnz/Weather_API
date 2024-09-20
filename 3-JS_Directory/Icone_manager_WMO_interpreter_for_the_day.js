@@ -81,9 +81,9 @@
       
             while (idx < array_length)
             {
-                if(idx_WMNO_code == Object.keys(WMO_json)[idx]) // if WMO Code from tab is same than idx key parsed in json.
+                if(idx_WMNO_code == Object.keys(WMO_json)[idx]) // if WMO Code from tab is in WMO json
                 {
-                    url = path_to_png_directory + '/' + WMO_json[idx].day.icon;
+                    url = path_to_png_directory + '/' + WMO_json[idx_WMNO_code].day.icon;
                     icon_current_weather.src =  url;
                     
                     return(icon_current_weather.src);
@@ -111,7 +111,7 @@
             {
                 if(idx_WMNO_code == Object.keys(WMO_json)[idx])
                 {
-                    description = WMO_json[idx].day.description;
+                    description = WMO_json[idx_WMNO_code].day.description;
                     display_apparent_temperature_description.innerHTML = description;
 
                     return(display_apparent_temperature_description);
