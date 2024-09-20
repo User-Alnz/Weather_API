@@ -94,7 +94,7 @@ function provide_iconURL_for_each_3hours(Hourly_WeatherData_Collection, Daily_We
     var     idx_WMNO_code;
     var     json_length;
     var     idx;
-    var     icon;
+    var     iconURL;
 
     idx_WMNO_code = Hourly_WeatherData_Collection[each_3hours_in_tab][15]; 
     json_length = Object.keys(WMO_json).length;
@@ -107,13 +107,13 @@ function provide_iconURL_for_each_3hours(Hourly_WeatherData_Collection, Daily_We
         {           
             if(is_night_per_hours(each_3hours_in_tab, Daily_WeatherData_collection)) // if true. NB: is_night_per_hours() is a boolean function
             {
-                icon = path_to_png_directory + '/' + WMO_json[idx].night.icon;
-                    return(icon);
+                iconURL = path_to_png_directory + '/' + WMO_json[idx_WMNO_code].night.icon;
+                    return(iconURL);
             }
             else
             {
-                icon = path_to_png_directory + '/' + WMO_json[idx].day.icon;
-                    return(icon);
+                iconURL = path_to_png_directory + '/' + WMO_json[idx_WMNO_code].day.icon;
+                    return(iconURL);
             }
         }
         idx++;
