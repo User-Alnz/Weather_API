@@ -167,7 +167,7 @@ function Transform_JSON_to_Table_Hourly(data_hourly, Hourly_WeatherData_Collecti
     idx_row = 0;
     idx_jsonFile = 0;
     
-    Hourly_WeatherData_Collection[idx_row] = ['time', 'temperature_2m', 'unit', 'apparent_temperature', 'unit', 'wind_direction_10m', 'unit', 'wind_speed_10m', 'unit', 'snowfall', 'unit', 'rain', 'unit','cloud_cover', 'unit', 'WMO_codes'];
+    Hourly_WeatherData_Collection[idx_row] = ['time', 'temperature_2m', 'unit', 'apparent_temperature', 'unit', 'wind_direction_10m', 'unit', 'wind_speed_10m', 'unit', 'snowfall', 'unit', 'rain', 'unit','cloud_cover', 'unit', 'relative_humidity_2m', 'unit', 'WMO_codes'];
        
     while(idx_jsonFile < data_hourly.hourly.time.length)
     {
@@ -198,6 +198,9 @@ function Transform_JSON_to_Table_Hourly(data_hourly, Hourly_WeatherData_Collecti
 
         Hourly_WeatherData_Collection[idx_row].push(data_hourly.hourly.cloud_cover[idx_jsonFile]);
         Hourly_WeatherData_Collection[idx_row].push(data_hourly.hourly_units.cloud_cover);
+
+        Hourly_WeatherData_Collection[idx_row].push(data_hourly.hourly.relative_humidity_2m[idx_jsonFile]);
+        Hourly_WeatherData_Collection[idx_row].push(data_hourly.hourly_units.relative_humidity_2m);
 
         Hourly_WeatherData_Collection[idx_row].push(data_hourly.hourly.weather_code[idx_jsonFile]);
 

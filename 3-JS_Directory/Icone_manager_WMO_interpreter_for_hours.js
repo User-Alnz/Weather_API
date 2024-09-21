@@ -96,7 +96,7 @@ function provide_iconURL_for_each_3hours(Hourly_WeatherData_Collection, Daily_We
     var     idx;
     var     iconURL;
 
-    idx_WMNO_code = Hourly_WeatherData_Collection[each_3hours_in_tab][15]; 
+    idx_WMNO_code = Hourly_WeatherData_Collection[each_3hours_in_tab][17];
     json_length = Object.keys(WMO_json).length;
     idx = 0;
     

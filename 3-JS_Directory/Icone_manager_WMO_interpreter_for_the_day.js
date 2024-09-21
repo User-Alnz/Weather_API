@@ -76,7 +76,7 @@
         obj_day = new Date();
         const hours = obj_day.getHours(); //Define current hour now to define where to find WMO code from the row pointing the time it's now.
 
-        idx_WMNO_code = Hourly_WeatherData_Collection[hours+1][15]; //define right WMO_code to pick from tab. | first row of tab is made of title like "time", "unit", "WMO_codes"etc.. So we start from idx[0+1].
+        idx_WMNO_code = Hourly_WeatherData_Collection[hours+1][17]; //define right WMO_code to pick from tab. | first row of tab is made of title like "time", "unit", "WMO_codes"etc.. So we start from idx[0+1].
         array_length = Object.keys(WMO_json).length; 
         idx = 0;
       
@@ -112,7 +112,7 @@
         obj_day = new Date();
         const hours = obj_day.getHours(); 
 
-        idx_WMNO_code = Hourly_WeatherData_Collection[hours+1][15]; 
+        idx_WMNO_code = Hourly_WeatherData_Collection[hours+1][17];
         array_length = Object.keys(WMO_json).length; 
         idx = 0;
 
