@@ -1,11 +1,11 @@
     //------------------------------------------------------------
         /* Main function  */
     //------------------------------------------------------------
-export function main_script_handle_details(Hourly_WeatherData_Collection, Daily_WeatherData_collection, display_weather_more_details)
+export function main_script_handle_details(Hourly_WeatherData_Collection, display_weather_more_details)
 {
     const paragraphList = display_weather_more_details[0].getElementsByTagName('p');
     
-    console.log(paragraphList);
+    //console.log(paragraphList);
     // wind_speed <p>
     paragraphList[1].innerHTML = `Wind speed : ${Get_wind_speed(Hourly_WeatherData_Collection)}`;
     // air_humidity <p>
@@ -180,7 +180,6 @@ function precipitation_interpreter(maxValue_in_tab)
     Rain or strong rain gives up about 15–20 mm (0.59–0.78 in);
     Rainfall gives more than 30 mm (1.18 in).
     */
-
     var string; 
 
     if( 2 >= maxValue_in_tab && 4 <= maxValue_in_tab)

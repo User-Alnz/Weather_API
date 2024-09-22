@@ -61,26 +61,31 @@ async function main()
   
     try
     {
-        /*functions cross data from tab "Hourly_WeatherData_Collection, Daily_WeatherData_collection" and cross it with WMO_Weather_codes.json to display right icon & description*/
-        main_script_handle_icon_and_description_for_the_day(Hourly_WeatherData_Collection, Daily_WeatherData_collection,  icon_current_weather, display_apparent_temperature_description);
-        main_script_handle_icons_and_descriptions_per_hours(Hourly_WeatherData_Collection, Daily_WeatherData_collection, Main_pack_daily_collection);
-        
         /* daily_weather_data - selection in DOM */
+
         display_sunrise.innerHTML = Get_sunrise(Daily_WeatherData_collection);
         display_sunset.innerHTML = Get_sunset(Daily_WeatherData_collection);
         display_date_today.innerHTML = Date_today();
         display_apparent_temperature.innerHTML = Display_apparent_temperature(Hourly_WeatherData_Collection);
         display_temp_now.innerHTML = Temperature_right_now(Hourly_WeatherData_Collection);
+        
         Display_weather_for_the_day(daily_temp_collection, Hourly_WeatherData_Collection);
 
-        main_script_handle_details( Hourly_WeatherData_Collection, Daily_WeatherData_collection, display_weather_more_details);
+        //functions cross data from tab "Hourly_WeatherData_Collection, Daily_WeatherData_collection" and cross it with WMO_Weather_codes.json to display right icon & description*/
+        main_script_handle_icon_and_description_for_the_day(Hourly_WeatherData_Collection, Daily_WeatherData_collection,  icon_current_weather, display_apparent_temperature_description);
+        main_script_handle_icons_and_descriptions_per_hours(Hourly_WeatherData_Collection, Daily_WeatherData_collection, Main_pack_daily_collection);
+
+        
+        main_script_handle_details( Hourly_WeatherData_Collection, display_weather_more_details);
 
         /* weekly_weather_data - selection in DOM*/
+
         main_script_handle_dates_and_temperatures_for_week(Hourly_WeatherData_Collection, Main_pack_weekly_collection);
         main_script_handle_icons_and_descriptions_for_the_week(Daily_WeatherData_collection, Main_pack_weekly_collection);
+
         /* Display tab in console if needed ! */
-        console.log(Daily_WeatherData_collection);
-        console.log(Hourly_WeatherData_Collection);
+        //console.log(Daily_WeatherData_collection);
+        //console.log(Hourly_WeatherData_Collection);
     }
     catch (error)
     {
