@@ -2,6 +2,7 @@
 	"0":{
 			"day":{
 				"description" : "Clear sky today will be sunny. So have a nice day !",
+				"description_per_day" : "Sunny",
 				"icon" : "clear.png" 	 
 			},
 			
@@ -14,6 +15,7 @@
 	"1":{
 			"day":{
 				"description" : "Mainly sunny. Could be cloudy but slightly.",
+				"description_per_day" : "Mainly Sunny",
 				"icon" : "mostlysunny.png"
 			},
 
@@ -26,6 +28,7 @@
 	"2":{
 			"day":{
 				"description" : "Partly cloudy. Do not hope having too much sun, it will be shy today.",
+				"description_per_day" : "Partly Cloudy",
 				"icon" : "partlysunny.png"
 				
 			},
@@ -39,6 +42,7 @@
 	"3":{
 			"day":{
 				"description" : "Cloudy and overcast. Sky is going to be totaly grey no suncream needed !",
+				"description_per_day" : "Cloudy",
 				"icon" : "cloudy.png"
 			},
 
@@ -56,6 +60,7 @@
 	"45":{
 			"day":{
 				"description" : "Foggy. Be carefull if you get your car today.",
+				"description_per_day" : "Foggy",
 				"icon" : "fog.png"
 			},
 
@@ -69,6 +74,7 @@
 	"48":{
 			"day":{
 				"description" : "Rime fog. Get you a warm coat it's forzen outside.",
+				"description_per_day" : "Rime fog",
 				"icon" : "fog.png"
 			},
 
@@ -86,6 +92,7 @@
 	"51":{
 			"day":{
 				"description" : "Light drizzle, you might need a umbrella.",
+				"description_per_day" : "Light drizzle",
 				"icon" : "chancerain.png"
 			},
 
@@ -98,6 +105,7 @@
 	"53":{
 			"day":{
 				"description" : "Weather is drizzle, mind your umbrella could be usefull.",
+				"description_per_day" : "Drizzle",
 				"icon" : "chancerain.png"
 
 			},
@@ -111,6 +119,7 @@
 	"55":{
 			"day":{
 				"description" : "Heavy drizzle today. Don't forget your umbrella you'll realy need it.",
+				"description_per_day" : "Heavy drizzle",
 				"icon" : "rain.png"
 				
 			},
@@ -125,6 +134,7 @@
 	"56":{
 			"day":{
 				"description" : "Light freezing Drizzle. Get warm clothes is going to be cold.",
+				"description_per_day" : "Light freezing Drizzle",
 				"icon" : "chancesleet.png"
 
 			},
@@ -139,6 +149,7 @@
 	"57":{
 			"day":{
 				"description" : "Freezing drizzle it should be dense so beware.",
+				"description_per_day" : "Freezing drizzle",
 				"icon" : "sleet.png"
 
 			},
@@ -158,6 +169,7 @@
 	"61":{
 			"day":{
 				"description" : "Light rain could worth to get an umbrella but wouldn't bother you. But get one though!",
+				"description_per_day" : "Light rain",
 				"icon" : "chancerain.png"
 			},
 
@@ -170,6 +182,7 @@
 	"63":{
 			"day":{
 				"description" : "It's rainning outside. If you don't have an umbrella do not expect being dry.",
+				"description_per_day" : "Rain",
 				"icon" : "chancerain.png"
 				
 			},
@@ -183,6 +196,7 @@
 	"65":{
 			"day":{
 				"description" : "It's going to rain heavily. You must need an umbrella !",
+				"description_per_day" : "Heavy rain",
 				"icon" : "rain.png"
 			},
 
@@ -200,12 +214,13 @@
 
 	"66":{
 			"day":{
-				"description" : "Light Freezing rain, take your precautions.",
+				"description" : "Light freezing rain, take your precautions.",
+				"description_per_day" : "Light Freezing Rain",
 				"icon" : "chancesleet.png"
 			},
 
 			"night":{
-				"description" : "Light Freezing rain, take your precautions.",
+				"description" : "Light freezing rain, take your precautions.",
 				"icon" : "nt_chancesleet.png"
 				
 			}
@@ -213,6 +228,7 @@
 	"67":{
 			"day":{
 				"description" : "Freezing rain should be dense so beware.",
+				"description_per_day" : "Freezing Rain",
 				"icon" : "sleet.png"
 
 			},
@@ -231,6 +247,7 @@
 	"71":{
 			"day":{
 				"description" : "It will snow lightly today.",
+				"description_per_day" : "Light Snow",
 				"icon" : "chancesnow.png"
 
 			},
@@ -245,6 +262,7 @@
 	"73":{
 			"day":{
 				"description" : "It will snow. It could worth to get a sled to go work. And if you don't have a job, you could do it though.",
+				"description_per_day" : "Snow",
 				"icon" : "chancesnow.png"
 			},
 
@@ -257,6 +275,7 @@
 	"75":{
 			"day":{
 				"description" : "Heavy snow so beware.",
+				"description_per_day" : "Heavy Snow",
 				"icon" : "snow.png"
 			},
 
@@ -269,6 +288,7 @@
 	"77":{
 			"day":{
 				"description" : "It will rain snow grains.",
+				"description_per_day" : "Snow Grains",
 				"icon" : "snow.png"
 			},
 
@@ -286,6 +306,7 @@
 	"80":{
 			"day":{
 				"description" : "Light showers, sky could not be totaly grey but it will rain.",
+				"description_per_day" : "Light Showers",
 				"icon" : "chancerain.png"
 			},
 
@@ -297,6 +318,7 @@
 	"81":{
 			"day":{
 				"description" : "Showers, sky is not totaly cover but it's raining.",
+				"description_per_day" : "Showers",
 				"icon" : "chancerain.png"
 			},
 
@@ -309,6 +331,7 @@
 	"82":{
 			"day":{
 				"description" : "Heavy showers, sky is not totaly cover but it will rain heavily.",
+				"description_per_day" : "Heavy Showers",
 				"icon" : "rain.png"
 			},
 
@@ -326,7 +349,8 @@
 
 	"85":{
 			"day":{
-				"description" : "Light Snow showers. It wouldn't be totaly cover but expect light snow.",
+				"description" : "Light snow showers. It wouldn't be totaly cover but expect light snow.",
+				"description_per_day" : "Light Snow Showers",
 				"icon" : "chanceflurries.png" 
 				
 			},
@@ -340,6 +364,7 @@
 	"86":{
 			"day":{
 				"description" : "Snow showers. It wouldn't be totaly cover but expect light snow.",
+				"description_per_day" : "Snow Showers",
 				"icon" : "flurries.png"
 				
 			},
@@ -357,6 +382,7 @@
 	"95":{
 			"day":{
 				"description" : "Thunderstorm today ! And it could also rain so be warned. ",
+				"description_per_day" : "Thunderstorm",
 				"icon" : "chancetstorms.png"
 
 			},
@@ -371,12 +397,13 @@
 	"96":{
 			"day":{
 				"description" : "Light thunderstorms with hail. So be worry if you are outside or driving.",
+				"description_per_day" : "Light Thunderstorms With Hail",
 				"icon" : "tstorms.png"
 
 			},
 
 			"night":{
-				"description":"Light Thunderstorms With Hail. So be worry if you are outside or driving.",
+				"description":"Light thunderstorms with hail. So be worry if you are outside or driving.",
 				"icon" : "nt_tstorms.png"
 			}
 	},
@@ -384,6 +411,7 @@
 	"99":{
 			"day":{
 				"description":"Thunderstorm with heavy hail. So really attention to your head ! Could worth to wait it's done before mooving.",
+				"description_per_day" : "Thunderstorm With Hail",
 				"icon" : "tstorms.png"
 			},
 
@@ -397,6 +425,7 @@
 
 		"error":{
 			"error_description":"Contact Admin Webapp. Impossible to get data from API.",
+			"error_description_per_day" : "Unknown",
 			"error_icon" : "unknown.png"
 		}
 

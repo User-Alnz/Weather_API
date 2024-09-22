@@ -19,7 +19,8 @@ export function main_script_handle_icons_and_descriptions_for_the_week(Daily_Wea
     retrieve_jsonfile()
     .then((WMO_json)=> {
 
-        display_icons(Daily_WeatherData_collection, Main_pack_weekly_collection, WMO_json)
+        display_icons(Daily_WeatherData_collection, Main_pack_weekly_collection, WMO_json);
+        display_description(Daily_WeatherData_collection, Main_pack_weekly_collection, WMO_json);
 
     })
     .catch(error=> console.error("main_script_handle_icons_and_descriptions_per_hours", error));
@@ -113,5 +114,57 @@ export function main_script_handle_icons_and_descriptions_for_the_week(Daily_Wea
                 {
                     iconURL = path_to_png_directory + '/' + WMO_json['404'].error.error_icon;
                         return(iconURL);
+                }
+    }
+
+    function display_description(Daily_WeatherData_collection, Main_pack_weekly_collection, WMO_json)
+    {
+        var     each_day;
+        var     Array_length;
+        var     idx;
+        
+        each_day = 1; //start to 1 because Daily_WeatherData_collection has title "WMO_codes" row 0;
+        Array_length = Main_pack_weekly_collection.length;
+        idx = 0;
+
+        while(idx < Array_length) // loop through children <img>'weekly_icons' to apply function
+        {
+        
+            Main_pack_weekly_collection[idx].getElementsByClassName('weekly_comment')[0].innerHTML = provide_description(Daily_WeatherData_collection, WMO_json, each_day);
+            each_day++;
+            idx++;
+        }
+    }
+
+    function provide_description(Daily_WeatherData_collection, WMO_json, each_day)
+    {
+        var     idx_WMNO_code;
+        var     json_length;
+        var     idx;
+        var     description;
+       
+        
+        idx_WMNO_code = Daily_WeatherData_collection[each_day][18];
+        
+        json_length = Object.keys(WMO_json).length;
+        idx = 0;
+
+        while(idx < json_length) // check if WMO_code is referenced in WMO json file. 
+        {
+            if(idx_WMNO_code == Object.keys(WMO_json)[idx])
+            {   
+                description = WMO_json[idx_WMNO_code].day.description_per_day;
+                
+                    return(description);
+            }
+
+            idx++;
+
+        }
+                // if not found though we went through all json code. return idx 404 with error in json        
+                if(idx_WMNO_code !== Object.keys(WMO_json)[idx])
+                {
+                    description = WMO_json['404'].error.error_description_per_day;
+                        return(description);
                 }
     }
