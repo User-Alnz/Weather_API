@@ -90,9 +90,7 @@ export function main_script_handle_icons_and_descriptions_for_the_week(Daily_Wea
         var     idx;
         var     iconURL;
        
-        
         idx_WMNO_code = Daily_WeatherData_collection[each_day][18];
-        
         
         json_length = Object.keys(WMO_json).length;
         idx = 0;
