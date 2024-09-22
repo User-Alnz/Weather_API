@@ -11,8 +11,10 @@ What project taught me and method used.
 3. How to manipulate 2D array and Json file to retrieve and use data. It's been a good way to understand how to parse and use date from Json file or a tab
 4. How to write a Json file. How to transform q Json into a 2d array.
 5. Manipulate DOM element to change img src url, change inner Html etc.. How to manipulate a collection of children elements to loop through etc ..
-6. Create a responsive layout based on Html font size root and using Viewheight and Viewwidth to size elements proprely and dependending of size screen. 
+6. Create a responsive layout based on Html font size root 1vw and using Viewheight and Viewwidth to size elements proprely and dependending of size screen. 
 
 And other things if you look at functions I used within this project !
+
+Improvement proposal : 
 
 
