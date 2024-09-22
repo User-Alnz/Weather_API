@@ -6,6 +6,7 @@
 import {Call_Meteomatics_API} from "./Get_API_data.js";
 import {Date_today} from "./handle_dates.js";
 import {Get_sunrise, Get_sunset, Display_apparent_temperature, Display_weather_for_the_day, Temperature_right_now} from "./daily_weather_data_functions.js";
+import {main_script_handle_details} from "./More_details_functions.js";
 import {main_script_handle_dates_and_temperatures_for_week} from "./weekly_weather_data_functions.js";
 import {main_script_handle_icon_and_description_for_the_day} from "./Icone_manager_WMO_interpreter_for_the_day.js";
 import {main_script_handle_icons_and_descriptions_per_hours} from "./Icone_manager_WMO_interpreter_for_hours.js";
@@ -31,6 +32,7 @@ const   display_date_today = document.getElementById("date");
 const   display_temp_now = document.getElementById("current_temperature");
 const   display_apparent_temperature = document.getElementById("apparent_temperature");
 const   display_apparent_temperature_description = document.getElementById("apparent_temperature_description");
+const   display_weather_more_details = document.getElementsByClassName("more_details");
 const   Main_pack_daily_collection = document.getElementsByClassName("Main_pack");
 const   daily_temp_collection = document.getElementsByClassName("daily_temp");
 
@@ -71,12 +73,14 @@ async function main()
         display_temp_now.innerHTML = Temperature_right_now(Hourly_WeatherData_Collection);
         Display_weather_for_the_day(daily_temp_collection, Hourly_WeatherData_Collection);
 
+        main_script_handle_details( Hourly_WeatherData_Collection, Daily_WeatherData_collection, display_weather_more_details);
+
         /* weekly_weather_data - selection in DOM*/
         main_script_handle_dates_and_temperatures_for_week(Hourly_WeatherData_Collection, Main_pack_weekly_collection);
         main_script_handle_icons_and_descriptions_for_the_week(Daily_WeatherData_collection, Main_pack_weekly_collection);
         /* Display tab in console if needed ! */
-        //console.log(Daily_WeatherData_collection);
-        //console.log(Hourly_WeatherData_Collection);
+        console.log(Daily_WeatherData_collection);
+        console.log(Hourly_WeatherData_Collection);
     }
     catch (error)
     {
