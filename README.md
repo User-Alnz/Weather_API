@@ -17,4 +17,6 @@ And other things if you look at functions I used within this project !
 
 Improvement proposal : 
 
+(not done yet ...)
+
 
